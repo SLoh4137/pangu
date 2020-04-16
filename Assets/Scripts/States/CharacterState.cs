@@ -4,6 +4,11 @@ using UnityEngine;
 
 namespace pangu
 {
+    public enum Transition
+    {
+        isIdle,
+        isWalk,
+    }
     public class CharacterState : StateMachineBehaviour
     {
         public List<StateData> ListAbilityData = new List<StateData>();
@@ -27,7 +32,7 @@ namespace pangu
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
             CharacterControl characterControl = GetCharacterControl(animator);
             foreach(StateData state in ListAbilityData) {
-                state.Update(characterControl, animator, stateInfo);
+                state.UpdateAbility(characterControl, animator, stateInfo);
             }
         }
 
