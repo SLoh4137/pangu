@@ -9,6 +9,8 @@ namespace pangu
         isIdle,
         isWalk,
         isGrounded,
+        isJumping,
+        VelocityY,
     }
     public class CharacterState : StateMachineBehaviour
     {

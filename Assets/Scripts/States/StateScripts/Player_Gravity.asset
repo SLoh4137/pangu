@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f528a32b91765a543b0300d3b30c9147, type: 3}
-  m_Name: Player_Ground_Detection
+  m_Script: {fileID: 11500000, guid: 55bddf5f38b791446b36d53b32aa02ac, type: 3}
+  m_Name: Player_Gravity
   m_EditorClassIdentifier: 
   Duration: 0
-  DetectionDistance: 0.1
+  gravity: 9.8
+  gravityMultiplier: 2.5
+  pullMultiplier: 2.5

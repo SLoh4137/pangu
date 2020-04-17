@@ -29,8 +29,7 @@ namespace pangu
                 animator.SetBool(Transition.isIdle.ToString(), true);
             }
 
-            characterControl.Movement = velocity;
-            // Note that movement is currently being handled in CharacterState
+            characterControl.Movement = velocity; // Note that movement is currently being handled in CharacterState
         }
         public override void OnExit(CharacterControl characterControl, Animator animator, AnimatorStateInfo stateInfo)
         {

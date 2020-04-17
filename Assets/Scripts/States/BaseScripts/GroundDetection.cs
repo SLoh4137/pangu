@@ -17,7 +17,6 @@ namespace pangu
                 Debug.DrawRay(sphere.transform.position, Vector3.down * DetectionDistance, Color.black);
                 if (Physics.Raycast(sphere.transform.position, Vector3.down, out hit, DetectionDistance)) 
                 { 
-
                     result = true;
                 }
             }
