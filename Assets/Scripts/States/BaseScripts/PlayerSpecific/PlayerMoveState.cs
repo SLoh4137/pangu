@@ -11,7 +11,6 @@ namespace pangu
         public float MoveAcceleration = 100.0f;
         public float MoveDeceleration = 100.0f;
 
-        private Vector2 velocity;
         public override void OnEnter(CharacterControl characterControl, Animator animator, AnimatorStateInfo stateInfo)
         {
             // Unused
@@ -22,6 +21,7 @@ namespace pangu
             // If moveHorizontal is non-zero, then accelerate towards it
             // If moveHorizontal is zero, then start decelerating
             float acceleration = characterControl.MoveHorizontal != 0 ? MoveAcceleration : MoveDeceleration;
+            Vector3 velocity = characterControl.Movement;
             velocity.x = Mathf.MoveTowards(velocity.x, MoveSpeed * characterControl.MoveHorizontal, acceleration * Time.deltaTime);
 
             if (velocity.x == 0)
@@ -29,7 +29,8 @@ namespace pangu
                 animator.SetBool(Transition.isIdle.ToString(), true);
             }
 
-            characterControl.controller.Move(velocity * Time.deltaTime);
+            characterControl.Movement = velocity;
+            // Note that movement is currently being handled in CharacterState
         }
         public override void OnExit(CharacterControl characterControl, Animator animator, AnimatorStateInfo stateInfo)
         {

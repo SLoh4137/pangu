@@ -8,6 +8,7 @@ namespace pangu
     {
         isIdle,
         isWalk,
+        isGrounded,
     }
     public class CharacterState : StateMachineBehaviour
     {
@@ -31,9 +32,12 @@ namespace pangu
 
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
             CharacterControl characterControl = GetCharacterControl(animator);
+            
             foreach(StateData state in ListAbilityData) {
                 state.UpdateAbility(characterControl, animator, stateInfo);
             }
+
+            characterControl.controller.Move(characterControl.Movement * Time.deltaTime);
         }
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
