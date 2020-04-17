@@ -54,28 +54,46 @@ namespace pangu
 
         public void ApplyGravity()
         {
-            Vector3 moveVector = characterControl.Movement;
-            // If we're grounded, no need to add gravity
-            if (characterControl.IsGrounded)
+            Vector3 velocity = characterControl.Movement;
+            if(characterControl.IsGrounded && velocity.y < 0f)
             {
-                moveVector.y = 0;
-            }
-            else
-            {
-                if (moveVector.y < 0f)
-                {
-                    // Already falling, so let's add additional gravity multiplier
-                    moveVector += Vector3.down * characterControl.GravityMultiplier;
-                }
-                else if (moveVector.y > 0f && !characterControl.Jump)
-                {
-                    // Currently rising but no longer holding jump button
-                    moveVector += Vector3.down * characterControl.PullMultiplier;
-                }
-                moveVector += Vector3.down * characterControl.Gravity * Time.deltaTime;
+                velocity.y = 0f;
             }
 
-            characterControl.Movement = moveVector;
+            if(velocity.y < 0f)
+            {
+                velocity.y -= characterControl.GravityMultiplier;
+            }
+            else if (characterControl.Movement.y > 0f && !characterControl.Jump)
+            {
+                velocity.y -= characterControl.PullMultiplier;
+            }
+
+            velocity.y -= characterControl.Gravity * Time.deltaTime;
+            characterControl.Movement = velocity;
+
+
+            // // Grounded but falling, then cancel out gravity
+            // if (characterControl.IsGrounded && characterControl.Movement.y < 0f)
+            // {  
+            //     characterControl.Movement = Vector3.right * characterControl.Movement.x; // cancel out the movement by eliminating y
+            //     return;
+            // }
+
+            // Vector3 gravityVector = Vector3.zero;
+
+            // // Already falling, so let's add additional gravity multiplier
+            // if(characterControl.Movement.y < 0f)
+            // { 
+            //     gravityVector = Vector3.down * characterControl.GravityMultiplier;
+            // }
+            // else if (characterControl.Movement.y > 0f && !characterControl.Jump) {
+            //     // Currently rising but no longer holding jump button
+            //     gravityVector = Vector3.down * characterControl.PullMultiplier;
+            // }
+
+            // gravityVector += Vector3.down * characterControl.Gravity * Time.deltaTime;
+            // characterControl.Movement += gravityVector;
         }
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

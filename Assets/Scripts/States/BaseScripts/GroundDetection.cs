@@ -18,9 +18,11 @@ namespace pangu
                 if (Physics.Raycast(sphere.transform.position, Vector3.down, out hit, DetectionDistance)) 
                 { 
                     result = true;
+                    break;
                 }
             }
             characterControl.IsGrounded = result;
+            characterControl.CurrentJump = result ? 0 : characterControl.CurrentJump; // resets if grounded
             animator.SetBool(Transition.isGrounded.ToString(), result);
         }
         public override void OnEnter(CharacterControl characterControl, Animator animator, AnimatorStateInfo stateInfo)

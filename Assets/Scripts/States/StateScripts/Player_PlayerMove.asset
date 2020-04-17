@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Player_PlayerMove
   m_EditorClassIdentifier: 
   Duration: 0
-  MoveSpeed: 100
-  MoveAcceleration: 200
-  MoveDeceleration: 500
+  MoveSpeed: 10
+  MoveAcceleration: 100
+  MoveDeceleration: 70

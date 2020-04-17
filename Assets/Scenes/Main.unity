@@ -352,12 +352,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 644191651}
-  MoveSpeed: 100
-  Health: 0
+  MaxHealth: 0
   MoveHorizontal: 0
   Jump: 0
   Crouch: 0
   IsGrounded: 0
+  MaxJumps: 1
+  HasGravity: 1
+  Gravity: 2
+  GravityMultiplier: 2.5
+  PullMultiplier: 0.5
   GroundDetectionSpherePrefab: {fileID: 1338952004033316766, guid: d04684ee58663e84ab0f1920d4e5b0cc,
     type: 3}
   GroundDetectionGranularity: 5

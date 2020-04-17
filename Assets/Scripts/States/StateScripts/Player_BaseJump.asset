@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55bddf5f38b791446b36d53b32aa02ac, type: 3}
-  m_Name: Player_Gravity
+  m_Script: {fileID: 11500000, guid: cf7d21dc975715e4397f25069435b417, type: 3}
+  m_Name: Player_BaseJump
   m_EditorClassIdentifier: 
   Duration: 0
-  gravity: 9.8
-  gravityMultiplier: 2.5
-  pullMultiplier: 2.5
+  JumpHeight: 30

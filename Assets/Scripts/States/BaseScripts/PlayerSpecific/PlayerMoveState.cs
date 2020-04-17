@@ -30,6 +30,7 @@ namespace pangu
             }
 
             characterControl.Movement = velocity; // Note that movement is currently being handled in CharacterState
+            //characterControl.transform.forward = velocity;
         }
         public override void OnExit(CharacterControl characterControl, Animator animator, AnimatorStateInfo stateInfo)
         {
