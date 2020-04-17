@@ -43,7 +43,7 @@ namespace pangu
         }
         public override void OnExit(CharacterControl characterControl, Animator animator, AnimatorStateInfo stateInfo)
         {
-            animator.SetBool(Transition.isIdle.ToString(), false);
+            
         }
     }
 }

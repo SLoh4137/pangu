@@ -7,12 +7,18 @@ namespace pangu
     public class CharacterControl : MonoBehaviour
     {
         public CharacterController controller;
-        public float MoveSpeed;
-        public int Health;
+        public int MaxHealth;
         public float MoveHorizontal;
         public bool Jump;
         public bool Crouch;
         public bool IsGrounded;
+        public int MaxJumps;
+
+        public bool HasGravity;
+        public float Gravity = 9.8f;
+        public float GravityMultiplier = 2.5f;
+        public float PullMultiplier = 2.5f;
+
         public GameObject GroundDetectionSpherePrefab;
         public float GroundDetectionGranularity;
 
@@ -23,14 +29,22 @@ namespace pangu
             get { return _groundDetectionSpheres; }
         }
 
+        // Function Getters/Setters
+
         public Vector3 Movement { get; set; } // so it can't be set in the Unity editor
+        public int CurrentJump { get; set; }
+        public int Health { get; set; }
 
         void Awake()
         {
+            CurrentJump = 0;
+            Movement = Vector3.zero;
+
             float bottom = controller.bounds.center.y - controller.bounds.extents.y;
             float left = controller.bounds.center.x - controller.bounds.extents.x;
             float right = controller.bounds.center.x + controller.bounds.extents.x;
             _groundDetectionSpheres = new List<GameObject>();
+            
 
             if (_groundDetectionSpheres != null)
             {
