@@ -5,29 +5,30 @@ using UnityEngine;
 namespace pangu
 
 {
-    [RequireComponent(typeof(CapsuleCollider2D))]
+    //[RequireComponent(typeof(CapsuleCollider2D))]
     public class PlayerController : CharacterControl
     {
         public LayerMask collideLayerMask;
-        private CapsuleCollider2D _collider;
+        //private CapsuleCollider2D _collider;
 
 
         void Awake()
         {
-            _collider = GetComponent<CapsuleCollider2D>();
+            //_collider = GetComponent<CapsuleCollider2D>();
         }
 
-        public override void CollisionDetection()
+        public void CollisionDetection()
         {
-            Collider2D[] hits = Physics2D.OverlapCapsuleAll(transform.position, _collider.size, _collider.direction, 0f, collideLayerMask);
-            foreach (Collider2D hit in hits)
-            {
-                ColliderDistance2D colliderDistance = hit.Distance(_collider);
-                if (colliderDistance.isOverlapped)
-                {
-                    transform.Translate(colliderDistance.pointA - colliderDistance.pointB);
-                }
-            }
+            // Collider2D[] hits = Physics2D.OverlapCapsuleAll(transform.position, _collider.size, _collider.direction, 0f, collideLayerMask);
+            // foreach (Collider2D hit in hits)
+            // {
+            //     ColliderDistance2D colliderDistance = hit.Distance(_collider);
+            //     if (colliderDistance.isOverlapped)
+            //     {
+            //         transform.Translate(colliderDistance.pointA - colliderDistance.pointB);
+            //         if(Vector2.Angle(colliderDistance.normal, Vector2.up) < 90)
+            //     }
+            // }
         }
     }
 }
