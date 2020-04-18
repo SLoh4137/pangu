@@ -8,14 +8,15 @@ namespace pangu
     public class GroundDetection : StateData
     {
         public float DetectionDistance = .25f;
+        public LayerMask CollideLayer;
 
         private void DetectGround(CharacterControl characterControl, Animator animator) {
             bool result = false;
             foreach(GameObject sphere in characterControl.GroundDetectionSpheres) 
             {
-                RaycastHit hit;
+                RaycastHit2D hit = Physics2D.Raycast(sphere.transform.position, Vector3.down, DetectionDistance, CollideLayer);
                 Debug.DrawRay(sphere.transform.position, Vector3.down * DetectionDistance, Color.black);
-                if (Physics.Raycast(sphere.transform.position, Vector3.down, out hit, DetectionDistance)) 
+                if (hit.collider != null)
                 { 
                     result = true;
                     break;

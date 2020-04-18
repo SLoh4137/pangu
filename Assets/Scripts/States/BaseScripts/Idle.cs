@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace pangu
+namespace pangu.states
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Pangu/Ability/Idle")]
-    public class IdleState : StateData
+    public class Idle : StateData
     {
         public override void OnEnter(CharacterControl characterControl, Animator animator, AnimatorStateInfo stateInfo)
         {

@@ -17,17 +17,18 @@ namespace pangu
             characterControl = GetComponent<CharacterControl>();
         }
 
-        void OnMovement(InputAction.CallbackContext context) {
-            if(context.performed) {
-                characterControl.MoveHorizontal = context.ReadValue<float>();
-            } 
-        } 
+        void OnMovement(InputAction.CallbackContext context)
+        {
+            characterControl.MoveHorizontal = context.ReadValue<float>();
+        }
 
-        void OnJump(InputAction.CallbackContext context) {
+        void OnJump(InputAction.CallbackContext context)
+        {
             characterControl.Jump = context.ReadValue<float>() != 0f;
         }
 
-        void OnCrouch(InputAction.CallbackContext context) {
+        void OnCrouch(InputAction.CallbackContext context)
+        {
             characterControl.Crouch = context.ReadValue<float>() != 0f;
         }
 

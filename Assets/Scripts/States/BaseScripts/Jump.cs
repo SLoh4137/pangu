@@ -2,25 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace pangu
+namespace pangu.states
 {
-    [CreateAssetMenu(fileName = "New State", menuName = "Pangu/Ability/BaseJump")]
-    public class BaseJumpState : StateData
+    [CreateAssetMenu(fileName = "New State", menuName = "Pangu/Ability/Jump")]
+    public class Jump : StateData
     {
-        public float JumpHeight = 10f;
+        public float JumpForce = 10f;
         private float precomputeJumpHeight;
         
         public override void OnEnter(CharacterControl characterControl, Animator animator, AnimatorStateInfo stateInfo)
         {
-            precomputeJumpHeight = Mathf.Sqrt(2 * JumpHeight * Mathf.Abs(characterControl.Gravity));
+            // Unused
         }
         public override void UpdateAbility(CharacterControl characterControl, Animator animator, AnimatorStateInfo stateInfo)
         {
             if(!characterControl.Jump || characterControl.CurrentJump >= characterControl.MaxJumps) return; // Not jumping 
 
-            //Vector3 velocity = characterControl.Movement;
-            characterControl.Movement += Vector3.up * precomputeJumpHeight;
+            Debug.Log("called");
             characterControl.CurrentJump++;
+            characterControl.rb.velocity += Vector2.up * JumpForce;
+
+            //Vector3 velocity = characterControl.Movement;
+            // characterControl.Movement += Vector3.up * precomputeJumpHeight;
+            
         }
         public override void OnExit(CharacterControl characterControl, Animator animator, AnimatorStateInfo stateInfo)
         {
