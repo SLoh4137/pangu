@@ -216,8 +216,9 @@ GameObject:
   - component: {fileID: 644191648}
   - component: {fileID: 644191650}
   - component: {fileID: 644191652}
-  - component: {fileID: 644191651}
   - component: {fileID: 644191653}
+  - component: {fileID: 644191654}
+  - component: {fileID: 644191651}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -264,13 +265,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6436562119283700969, guid: fed38e0e9bf76e74eb971cbe91b1350c,
+  m_Sprite: {fileID: 9144914134865520340, guid: 5e8accff780a44e46b599d4d557f6548,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 32, y: 32}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -284,7 +285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644191647}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2, y: -10.4, z: 0}
+  m_LocalPosition: {x: 2.15, y: -8.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -300,7 +301,7 @@ Animator:
   m_GameObject: {fileID: 644191647}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e96d767601c8a4945979863914f2ee11, type: 2}
+  m_Controller: {fileID: 9100000, guid: cb3773a34f58c9d47988142a3a500ec1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -309,24 +310,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!143 &644191651
-CharacterController:
+--- !u!50 &644191651
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644191647}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 16
-  m_Radius: 5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 16, z: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &644191652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,7 +338,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644191647}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 289fedad42ef3f7479501595a5dc3581, type: 3}
   m_Name: 
@@ -351,8 +355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea4ddbc397b476649935f34fe2d573ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 644191651}
-  MaxHealth: 0
+  controller: {fileID: 0}
+  MaxHealth: 100
   MoveHorizontal: 0
   Jump: 0
   Crouch: 0
@@ -365,6 +369,22 @@ MonoBehaviour:
   GroundDetectionSpherePrefab: {fileID: 1338952004033316766, guid: d04684ee58663e84ab0f1920d4e5b0cc,
     type: 3}
   GroundDetectionGranularity: 5
+--- !u!70 &644191654
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644191647}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 16}
+  m_Size: {x: 32, y: 32}
+  m_Direction: 0
 --- !u!1 &1934991240
 GameObject:
   m_ObjectHideFlags: 0

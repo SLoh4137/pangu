@@ -56,6 +56,78 @@ TextureImporter:
   - first:
       213: -850464199485413704
     second: pangu-32_JumpFall_1
+  - first:
+      213: 833467546586954801
+    second: pangu-32 0
+  - first:
+      213: 6942337755450152028
+    second: pangu-32 1
+  - first:
+      213: 6842895099760143353
+    second: pangu-32 2
+  - first:
+      213: -3956951663294049866
+    second: pangu-32 3
+  - first:
+      213: 1443364790606539108
+    second: pangu-32 4
+  - first:
+      213: -5994565840869899856
+    second: pangu-32 5
+  - first:
+      213: -2474383399913180027
+    second: pangu-32 6
+  - first:
+      213: -8780989374977776817
+    second: pangu-32 7
+  - first:
+      213: -2003648349163129362
+    second: pangu-32 8
+  - first:
+      213: -8225761471932072203
+    second: pangu-32 9
+  - first:
+      213: 5446345292335831680
+    second: pangu-32 10
+  - first:
+      213: 360733056237571181
+    second: pangu-32 11
+  - first:
+      213: 7011761635226362669
+    second: pangu-32 12
+  - first:
+      213: 2803750996267599846
+    second: pangu-32 13
+  - first:
+      213: -2902080351024176143
+    second: pangu-32 14
+  - first:
+      213: 3539035405840121727
+    second: pangu-32 15
+  - first:
+      213: 6236313242278962503
+    second: pangu-32 16
+  - first:
+      213: -992359932889834928
+    second: pangu-32 17
+  - first:
+      213: -112873562342705993
+    second: pangu-32 18
+  - first:
+      213: -7223802999574726186
+    second: pangu-32 19
+  - first:
+      213: -847054271737317993
+    second: pangu-32 20
+  - first:
+      213: -8248783342535322976
+    second: pangu-32 21
+  - first:
+      213: -6237429470236358328
+    second: pangu-32 22
+  - first:
+      213: 6905914494892380432
+    second: pangu-32 23
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,7 +187,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 96
+    maxTextureSize: 160
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -129,7 +201,217 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pangu-32_Idle1_0
+      name: pangu-32 0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13cb1265152119b00800000000000000
+      internalID: 833467546586954801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangu-32 1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5493601863285060800000000000000
+      internalID: 6942337755450152028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangu-32 2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fbe67886d8d6fe50800000000000000
+      internalID: 6842895099760143353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangu-32 3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b197f35d651619c0800000000000000
+      internalID: -3956951663294049866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangu-32 4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 469a86931acd70410800000000000000
+      internalID: 1443364790606539108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangu-32 5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b14248d0260fcca0800000000000000
+      internalID: -5994565840869899856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangu-32 6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5843d0a586939add0800000000000000
+      internalID: -2474383399913180027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangu-32 7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4368f7efa8a32680800000000000000
+      internalID: -8780989374977776817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangu-32 8
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee57555317c9134e0800000000000000
+      internalID: -2003648349163129362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangu-32 9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fef462f58938dd80800000000000000
+      internalID: -8225761471932072203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangu-32 10
       rect:
         serializedVersion: 2
         x: 0
@@ -143,14 +425,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 71b0c59dadcbca6a0800000000000000
-      internalID: -6436562119283700969
+      spriteID: 08a5cc9ff2e459b40800000000000000
+      internalID: 5446345292335831680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pangu-32_Idle1_1
+      name: pangu-32 11
       rect:
         serializedVersion: 2
         x: 32
@@ -164,14 +446,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 96f6649b5ed5792d0800000000000000
-      internalID: -3272043363024081047
+      spriteID: d6c08cbadc4910500800000000000000
+      internalID: 360733056237571181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pangu-32_Idle1_2
+      name: pangu-32 12
       rect:
         serializedVersion: 2
         x: 64
@@ -185,14 +467,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d48177e9885773b60800000000000000
-      internalID: 7725772915411982413
+      spriteID: d23216dae08ce4160800000000000000
+      internalID: 7011761635226362669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pangu-32_Idle1_3
+      name: pangu-32 13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e78d2b1dace8e620800000000000000
+      internalID: 2803750996267599846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangu-32 14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f3209feb4db9b7d0800000000000000
+      internalID: -2902080351024176143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangu-32 15
       rect:
         serializedVersion: 2
         x: 0
@@ -206,14 +530,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ba775f43b5fc02140800000000000000
-      internalID: 4692978802357532587
+      spriteID: f7f71a473fd2d1130800000000000000
+      internalID: 3539035405840121727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pangu-32_Walk_0
+      name: pangu-32 16
       rect:
         serializedVersion: 2
         x: 32
@@ -227,35 +551,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 728f1d8d145b84d80800000000000000
-      internalID: -8266157821623404505
+      spriteID: 7452a1a3ad5db8650800000000000000
+      internalID: 6236313242278962503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pangu-32_Walk_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9ef9be09e08514d60800000000000000
-      internalID: 7872670443204485097
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pangu-32_Walk_2
+      name: pangu-32 17
       rect:
         serializedVersion: 2
         x: 64
@@ -269,17 +572,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b9e9e3c22146ba100800000000000000
-      internalID: 120299844269940379
+      spriteID: 05a55c616ed6a32f0800000000000000
+      internalID: -992359932889834928
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pangu-32_Walk_3
+      name: pangu-32 18
       rect:
         serializedVersion: 2
-        x: 32
+        x: 96
         y: 32
         width: 32
         height: 32
@@ -290,17 +593,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 069b9c0981fb540c0800000000000000
-      internalID: -4592054132805093024
+      spriteID: 7b4b704d71efe6ef0800000000000000
+      internalID: -112873562342705993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pangu-32_Walk_4
+      name: pangu-32 19
       rect:
         serializedVersion: 2
-        x: 32
+        x: 128
         y: 32
         width: 32
         height: 32
@@ -311,35 +614,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6f45659359a5ea700800000000000000
-      internalID: 553479401171735798
+      spriteID: 6d972faf175efbb90800000000000000
+      internalID: -7223802999574726186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pangu-32_Slide_0
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8ae52f9adcbd8f020800000000000000
-      internalID: 2375890479803948712
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pangu-32_Slide_1
+      name: pangu-32 20
       rect:
         serializedVersion: 2
         x: 0
@@ -353,56 +635,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 454d6328ae80db950800000000000000
-      internalID: 6466334443273901140
+      spriteID: 795be93b0a8ae34f0800000000000000
+      internalID: -847054271737317993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pangu-32_Slide_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 07b08dfdff8b35750800000000000000
-      internalID: 6292576513478364016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pangu-32_Slide_3
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f01a06d7d262b65a0800000000000000
-      internalID: -6527081258124533489
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pangu-32_JumpUp_0
+      name: pangu-32 21
       rect:
         serializedVersion: 2
         x: 32
@@ -416,17 +656,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fd1884c0c6cada910800000000000000
-      internalID: 1850324601981665759
+      spriteID: 0a2d50ff04f668d80800000000000000
+      internalID: -8248783342535322976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pangu-32_JumpUp_1
+      name: pangu-32 22
       rect:
         serializedVersion: 2
-        x: 32
+        x: 64
         y: 0
         width: 32
         height: 32
@@ -437,17 +677,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 23d8ccd2e5600a800800000000000000
-      internalID: 621503750142201138
+      spriteID: 8494203b1f23079a0800000000000000
+      internalID: -6237429470236358328
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pangu-32_JumpUp_2
+      name: pangu-32 23
       rect:
         serializedVersion: 2
-        x: 32
+        x: 96
         y: 0
         width: 32
         height: 32
@@ -458,50 +698,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9a50c7bdd05f2f800800000000000000
-      internalID: 644847136533120425
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pangu-32_JumpFall_0
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 027daa4681e5c03a0800000000000000
-      internalID: -6697875086945626336
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pangu-32_JumpFall_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8b62c77015b8234f0800000000000000
-      internalID: -850464199485413704
+      spriteID: 011184dd4acb6df50800000000000000
+      internalID: 6905914494892380432
       vertices: []
       indices: 
       edges: []
