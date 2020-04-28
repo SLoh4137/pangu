@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Player_Jump
   m_EditorClassIdentifier: 
   Duration: 0
-  JumpForce: 2
+  JumpForceVector: {x: 0, y: 10}
+  JumpTimeLength: 0.5

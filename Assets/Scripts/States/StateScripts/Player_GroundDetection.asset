@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player_GroundDetection
   m_EditorClassIdentifier: 
   Duration: 0
-  DetectionDistance: 1
+  DetectionDistance: 0.25
   CollideLayer:
     serializedVersion: 2
     m_Bits: 256
