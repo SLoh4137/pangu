@@ -15,7 +15,6 @@ namespace pangu
 
         [Header("Character")]
 
-        public float Gravity = 9.8f;
         public float GravityMultiplier = 2.5f;
         public float PullMultiplier = 2.5f;
     

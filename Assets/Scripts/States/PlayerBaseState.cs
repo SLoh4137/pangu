@@ -9,6 +9,7 @@ namespace pangu
         isIdle,
         isWalk,
         isGrounded,
+        Jump,
         VelocityY,
     }
     public abstract class PlayerBaseState : StateMachineBehaviour

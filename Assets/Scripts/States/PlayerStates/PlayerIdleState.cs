@@ -17,6 +17,11 @@ namespace pangu
             {
                 animator.SetBool(PlayerTransition.isWalk.ToString(), true);
             }
+
+            if(control.Jump && control.DetectGround())
+            {
+                animator.SetTrigger(PlayerTransition.Jump.ToString());
+            }
         }
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 

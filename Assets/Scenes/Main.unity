@@ -381,7 +381,7 @@ MonoBehaviour:
   MaxHealth: 100
   Defense: 0
   Speed: 10
-  JumpForce: 10
+  JumpForce: 100
   AttackRate: 0
   AttackRange: 0
   CritChance: 0
@@ -389,9 +389,8 @@ MonoBehaviour:
   MoveHorizontal: 0
   Jump: 0
   Crouch: 0
-  Gravity: 9.8
-  GravityMultiplier: 2.5
-  PullMultiplier: 2.5
+  GravityMultiplier: 1
+  PullMultiplier: 1
   FacingRight: 0
   GroundDetectionSpherePrefab: {fileID: 1338952004033316766, guid: d04684ee58663e84ab0f1920d4e5b0cc,
     type: 3}
