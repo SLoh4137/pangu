@@ -250,10 +250,10 @@ GameObject:
   - component: {fileID: 644191649}
   - component: {fileID: 644191648}
   - component: {fileID: 644191650}
-  - component: {fileID: 644191652}
-  - component: {fileID: 644191653}
   - component: {fileID: 644191654}
   - component: {fileID: 644191651}
+  - component: {fileID: 644191653}
+  - component: {fileID: 644191652}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -300,13 +300,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 9144914134865520340, guid: 5e8accff780a44e46b599d4d557f6548,
+  m_Sprite: {fileID: -1305123974982886820, guid: 54c934be99eff474ea0c6cbdde6072f4,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 3.125, y: 2.3125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -336,7 +336,7 @@ Animator:
   m_GameObject: {fileID: 644191647}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cb3773a34f58c9d47988142a3a500ec1, type: 2}
+  m_Controller: {fileID: 9100000, guid: f50f9c5f757203d498ce7b32c4a70814, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -375,9 +375,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 644191647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 289fedad42ef3f7479501595a5dc3581, type: 3}
+  m_Script: {fileID: 11500000, guid: 91d7d123ca0d25342a62e9b2354c8be9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHealth: 100
+  Defense: 0
+  Speed: 10
+  JumpForce: 10
+  AttackRate: 0
+  AttackRange: 0
+  CritChance: 0
+  CritDamageMult: 0
+  MoveHorizontal: 0
+  Jump: 0
+  Crouch: 0
+  Gravity: 9.8
+  GravityMultiplier: 2.5
+  PullMultiplier: 2.5
+  FacingRight: 0
+  GroundDetectionSpherePrefab: {fileID: 1338952004033316766, guid: d04684ee58663e84ab0f1920d4e5b0cc,
+    type: 3}
+  GroundDetectionGranularity: 0
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  GroundDetectionDistance: 0.25
 --- !u!114 &644191653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,24 +409,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 644191647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea4ddbc397b476649935f34fe2d573ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 289fedad42ef3f7479501595a5dc3581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveHorizontal: 0
-  Jump: 0
-  Crouch: 0
-  MaxHealth: 100
-  Gravity: 2
-  GravityMultiplier: 2.5
-  PullMultiplier: 0.5
-  HasGravity: 1
-  IsGrounded: 0
-  MaxJumps: 1
-  FacingRight: 0
-  GroundDetectionSpherePrefab: {fileID: 1338952004033316766, guid: d04684ee58663e84ab0f1920d4e5b0cc,
-    type: 3}
-  GroundDetectionGranularity: 3
-  rb: {fileID: 644191651}
 --- !u!70 &644191654
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

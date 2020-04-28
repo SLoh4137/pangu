@@ -1,0 +1,31 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace pangu
+{
+    public enum PlayerTransition
+    {
+        isIdle,
+        isWalk,
+        isGrounded,
+        VelocityY,
+    }
+    public abstract class PlayerBaseState : StateMachineBehaviour
+    {
+        public PlayerControl control;
+
+        public void GetControl(Animator animator) {
+            if(control == null) 
+            {
+                control = animator.GetComponentInParent<PlayerControl>();
+            }
+        }
+
+        public abstract override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex);
+        public abstract override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex);
+        public abstract override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex);
+    }
+}
+
+

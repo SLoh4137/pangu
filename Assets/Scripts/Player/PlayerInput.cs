@@ -5,31 +5,31 @@ using UnityEngine.InputSystem;
 
 namespace pangu
 {
-    [RequireComponent(typeof(CharacterControl))]
+    [RequireComponent(typeof(PlayerControl))]
     public class PlayerInput : MonoBehaviour
     {
-        private CharacterControl characterControl;
+        private PlayerControl control;
         private PlayerInputActions inputActions;
 
         void Awake()
         {
             inputActions = new PlayerInputActions();
-            characterControl = GetComponent<CharacterControl>();
+            control = GetComponent<PlayerControl>();
         }
 
         void OnMovement(InputAction.CallbackContext context)
         {
-            characterControl.MoveHorizontal = context.ReadValue<float>();
+            control.MoveHorizontal = context.ReadValue<float>();
         }
 
         void OnJump(InputAction.CallbackContext context)
         {
-            characterControl.Jump = context.ReadValue<float>() != 0f;
+            control.Jump = context.ReadValue<float>() != 0f;
         }
 
         void OnCrouch(InputAction.CallbackContext context)
         {
-            characterControl.Crouch = context.ReadValue<float>() != 0f;
+            control.Crouch = context.ReadValue<float>() != 0f;
         }
 
 
