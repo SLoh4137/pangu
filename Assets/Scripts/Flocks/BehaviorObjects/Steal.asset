@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Steal
   m_EditorClassIdentifier: 
   filter: {fileID: 0}
-  stealChance: 0.5
+  stealChance: 0.102

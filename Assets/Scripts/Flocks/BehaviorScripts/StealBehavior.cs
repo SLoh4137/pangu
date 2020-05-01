@@ -22,7 +22,7 @@ namespace pangu
             foreach (Transform neighbor in filteredContext)
             {
                 FlockAgent neighborAgent = neighbor.GetComponent<FlockAgent>();
-                if (neighborAgent != null)
+                if (neighborAgent != null && Random.Range(0f, 1f) < stealChance)
                 {
                     flock.StealAgentFromFlock(neighborAgent, neighborAgent.AgentFlock);
                 }
