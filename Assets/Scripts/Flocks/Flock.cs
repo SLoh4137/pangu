@@ -45,7 +45,21 @@ namespace pangu
         // Update is called once per frame
         void Update()
         {
+            foreach (FlockAgent agent in agents)
+            {
+                List<Transform> context = GetNearbyObjects(agent);
 
+                //FOR DEMO ONLY
+                agent.GetComponentInChildren<SpriteRenderer>().color = Color.Lerp(Color.white, Color.red, context.Count / 6f);
+
+                // Vector2 move = behavior.CalculateMove(agent, context, this);
+                // move *= driveFactor;
+                // if (move.sqrMagnitude > squareMaxSpeed)
+                // {
+                //     move = move.normalized * maxSpeed;
+                // }
+                // agent.Move(move);
+            }
         }
         #endregion lifecycle
 
