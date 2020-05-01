@@ -7,36 +7,35 @@ namespace pangu
     [CreateAssetMenu(menuName = "Flock/Behavior/Composite")]
     public class CompositeBehavior : FlockBehavior
     {
-        public FlockBehavior[] behaviors;
-        public float[] weights;
+        [System.Serializable]
+        public struct Behavior 
+        {
+            public FlockBehavior behavior;
+            public float weight;
+        }
+        public Behavior[] behaviors;
 
         public override Vector2 CalculateMove(FlockAgent agent, List<Transform> context, Flock flock)
         {
-            // handle data mismatch between behaviors and weights
-            if (weights.Length != behaviors.Length)
-            {
-                Debug.LogError("Data mismatch in " + name, this);
-                return Vector2.zero;
-            }
-
             Vector2 move = Vector2.zero;
 
-            for (int i = 0; i < behaviors.Length; i++)
+            foreach (Behavior b in behaviors)
             {
-                Vector2 partialMove = behaviors[i].CalculateMove(agent, context, flock) * weights[i];
+                Vector2 partialMove = b.behavior.CalculateMove(agent, context, flock) * b.weight;
 
                 if (partialMove != Vector2.zero)
                 {
                     // If partial move is greater than our weight, then normalize it so it's exactly the weight
-                    if (partialMove.sqrMagnitude > weights[i] + weights[i])
+                    if (partialMove.sqrMagnitude > b.weight + b.weight)
                     {
                         partialMove.Normalize();
-                        partialMove *= weights[i];
+                        partialMove *= b.weight;
                     }
 
                     move += partialMove;
                 }
             }
+
             return move;
         }
     }

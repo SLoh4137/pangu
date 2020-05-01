@@ -791,13 +791,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d1f68a8258253b40a6b97ff7211ded2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behavior: {fileID: 11400000, guid: 9b159f73fe6b67f4d8ac103bf9b599b1, type: 2}
+  behavior: {fileID: 11400000, guid: cf49d799b8c5e114abeac4f0a3a4abb9, type: 2}
   agentPrefab: {fileID: 181117063034320519, guid: e1dd285c3611b3e4fac295f6026d0c5a,
     type: 3}
   startingCount: 250
   driveFactor: 10
   maxSpeed: 5
-  neighborRadius: 1.5
+  neighborRadius: 1
   avoidanceRadiusMultiplier: 0.5
 --- !u!4 &1331362999
 Transform:

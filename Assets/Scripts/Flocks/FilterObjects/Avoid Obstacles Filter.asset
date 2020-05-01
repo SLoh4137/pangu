@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp:pangu:PhysicsFilter
   mask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
