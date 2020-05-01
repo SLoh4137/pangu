@@ -28,7 +28,7 @@ namespace pangu
             move /= context.Count;
 
             // Create offset from agent's current position
-            move -= (Vector2)agent.transform.position;
+            move -= (Vector2) agent.transform.position;
             move = Vector2.SmoothDamp(agent.transform.up, move, ref currentVelocity, agentSmoothTime);
             return move;
         }
