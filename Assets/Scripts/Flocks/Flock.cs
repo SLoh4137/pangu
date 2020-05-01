@@ -56,6 +56,13 @@ namespace pangu
                 agentsToAdd.Clear();
             }
 
+
+            // Destroy self if no agents in flock
+            if(agents.Count == 0)
+            { 
+                Destroy(gameObject);
+            }
+
             foreach (FlockAgent agent in agents)
             {
                 List<Transform> context = GetNearbyObjects(agent);

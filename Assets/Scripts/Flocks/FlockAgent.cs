@@ -43,6 +43,7 @@ namespace pangu
         {
             agentFlock = newFlock;
             spriteRenderer.color = newFlock.color;
+            transform.parent = newFlock.transform;
         }
     }
 }
