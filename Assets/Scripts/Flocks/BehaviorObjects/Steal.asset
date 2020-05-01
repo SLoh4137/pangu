@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8af88c0f1d5a47443815ea866f1062c3, type: 3}
-  m_Name: Stay In Radius
+  m_Script: {fileID: 11500000, guid: be24024027db4e0458b85a0e0d95a103, type: 3}
+  m_Name: Steal
   m_EditorClassIdentifier: 
-  center: {x: 0, y: 0}
-  radius: 10
-  pullRadius: 1
+  filter: {fileID: 0}
+  stealChance: 0.5

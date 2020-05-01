@@ -17,10 +17,12 @@ namespace pangu
         public float maxSpeed = 5f;
         public float neighborRadius = 1.5f;
         public float avoidanceRadiusMultiplier = 0.5f;
+        public Color color;
         #endregion publicvars
 
         #region privatevars
         private HashSet<FlockAgent> agents;
+        private List<FlockAgent> agentsToAdd;
         private float squareMaxSpeed;
         private float squareNeighborRadius;
         private float squareAvoidanceRadius;
@@ -38,6 +40,7 @@ namespace pangu
             squareNeighborRadius = neighborRadius * neighborRadius;
             squareAvoidanceRadius = squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
             agents = new HashSet<FlockAgent>();
+            agentsToAdd = new List<FlockAgent>();
 
             Initialize();
         }
@@ -45,6 +48,14 @@ namespace pangu
         // Update is called once per frame
         void Update()
         {
+            if(agentsToAdd.Count > 0) {
+                foreach (FlockAgent agent in agentsToAdd)
+                {
+                    agents.Add(agent);
+                }
+                agentsToAdd.Clear();
+            }
+
             foreach (FlockAgent agent in agents)
             {
                 List<Transform> context = GetNearbyObjects(agent);
@@ -75,7 +86,9 @@ namespace pangu
                 );
 
                 newAgent.name = "Agent " + i;
+                
                 newAgent.Initialize(this);
+                newAgent.GetComponentInChildren<SpriteRenderer>().color = color;
                 agents.Add(newAgent);
             }
         }
@@ -93,6 +106,23 @@ namespace pangu
             }
 
             return context;
+        }
+
+        public void StealAgent(FlockAgent agent)
+        {
+            agents.Remove(agent);
+        }
+
+        public void StealAgentFromFlock(FlockAgent agentToSteal, Flock flockToStealFrom)
+        {
+            // If agent already in flock, no need to steal
+            if(agents.Contains(agentToSteal))
+                return;
+
+            flockToStealFrom.StealAgent(agentToSteal);
+            agentToSteal.ChangeFlock(this);
+            agentsToAdd.Add(agentToSteal);
+            //agents.Add(agentToSteal);
         }
     }
 }

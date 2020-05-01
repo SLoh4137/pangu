@@ -11,29 +11,38 @@ namespace pangu
         #region privatevars
         private Flock agentFlock;
         private Collider2D agentCollider;
+        private SpriteRenderer spriteRenderer;
         #endregion privatevars
 
         #region getters
-        public Flock AgentFlock { get { return agentFlock; } }
+        public Flock AgentFlock { get { return agentFlock; }}
         public Collider2D AgentCollider { get { return agentCollider; } }
         #endregion getters
 
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             agentCollider = GetComponent<Collider2D>();
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
 
         public void Initialize(Flock flock)
         {
             agentFlock = flock;
+            spriteRenderer.color = flock.color;
         }
 
         public void Move(Vector2 velocity)
         {
             transform.up = velocity;
             transform.position += (Vector3)velocity * Time.deltaTime;
+        }
+
+        public void ChangeFlock(Flock newFlock)
+        {
+            agentFlock = newFlock;
+            spriteRenderer.color = newFlock.color;
         }
     }
 }
