@@ -20,7 +20,7 @@ namespace pangu
         #endregion publicvars
 
         #region privatevars
-        private List<FlockAgent> agents;
+        private HashSet<FlockAgent> agents;
         private float squareMaxSpeed;
         private float squareNeighborRadius;
         private float squareAvoidanceRadius;
@@ -37,7 +37,7 @@ namespace pangu
             squareMaxSpeed = maxSpeed * maxSpeed;
             squareNeighborRadius = neighborRadius * neighborRadius;
             squareAvoidanceRadius = squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
-            agents = new List<FlockAgent>();
+            agents = new HashSet<FlockAgent>();
 
             Initialize();
         }
