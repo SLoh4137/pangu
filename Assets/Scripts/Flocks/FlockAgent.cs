@@ -45,5 +45,11 @@ namespace pangu
             spriteRenderer.color = newFlock.color;
             transform.parent = newFlock.transform;
         }
+
+        public Vector2 ClosestPoint(Transform item) 
+        {
+            Collider2D itemCollider = item.GetComponent<Collider2D>();
+            return itemCollider != null ? itemCollider.ClosestPoint(transform.position) : (Vector2) item.position;
+        }
     }
 }

@@ -20,10 +20,11 @@ namespace pangu
 
             foreach (Transform item in filteredContext)
             {
-                if (Vector2.SqrMagnitude(item.position - agent.transform.position) < flock.SquareAvoidanceRadius)
+                Vector3 closestPoint = agent.ClosestPoint(item);
+                if (Vector2.SqrMagnitude(closestPoint - agent.transform.position) < flock.SquareAvoidanceRadius)
                 {
                     nAvoid++;
-                    move += (Vector2)(agent.transform.position - item.position); // move in opposite direction
+                    move += (Vector2)(agent.transform.position - closestPoint); // move in opposite direction
                 }
             }
 

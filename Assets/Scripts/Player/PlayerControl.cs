@@ -5,20 +5,32 @@ using UnityEngine;
 namespace pangu
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class PlayerControl : CharacterBase
+    public class PlayerControl : MonoBehaviour, ICharacter 
     {
         #region publicVars
+        [Header("Character")]
+        public int StartingHealth;
+
+        public int Defense;
+        public int Speed;
+        public int JumpForce;
+
+        public float AttackRate;
+        public float AttackRange;        
+
+        [Range(0, 100)]
+        public float CritChance;
+        public int CritDamageMult;
+
         [Header("Input")]
         public float MoveHorizontal;
         public bool Jump;
         public bool Crouch;
+        public bool FacingRight;
 
-        [Header("Character")]
-
+        [Header("Character Feel")]
         public float GravityMultiplier = 2.5f;
         public float PullMultiplier = 2.5f;
-    
-        public bool FacingRight;
 
         [Header("Collision Detection")]
         public GameObject GroundDetectionSpherePrefab;
@@ -42,11 +54,17 @@ namespace pangu
             get { return rb; }
         }
 
+        public int MaxHealth { get; set; }
+        public int Health { get; set; }
+
+        #region lifecycle
         void Awake()
         {
             FacingRight = true;
             animator = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
+            MaxHealth = StartingHealth;
+            Health = MaxHealth;
 
             Collider2D collider = GetComponent<Collider2D>();
 
@@ -92,6 +110,21 @@ namespace pangu
                 rb.velocity += Vector2.down * PullMultiplier;
             }
         }
+
+        #endregion lifecycle
+
+        #region ICharacter
+        public void TakeDamage(int damage) 
+        {
+            Health -= damage;
+        }
+
+        public void DealDamage(ICharacter character)
+        {
+            int damage = 0;
+            character.TakeDamage(damage);
+        }
+        #endregion
 
         public bool DetectGround() {
             foreach(GameObject sphere in GroundDetectionSpheres) 

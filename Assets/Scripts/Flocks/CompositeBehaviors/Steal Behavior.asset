@@ -20,8 +20,8 @@ MonoBehaviour:
   - behavior: {fileID: 11400000, guid: d2bb19d2af745a04f96a9d51ba171443, type: 2}
     weight: 1
   - behavior: {fileID: 11400000, guid: e3b4b9b26cbec23448553544ca2dc25e, type: 2}
-    weight: 20
-  - behavior: {fileID: 11400000, guid: 13c81d84f7fde7a449e06303e1fdf041, type: 2}
+    weight: 10
+  - behavior: {fileID: 11400000, guid: 6441eb6924a12dc4293e528b15ab1e2a, type: 2}
     weight: 1
   - behavior: {fileID: 11400000, guid: d140e20388acd1a4ca895639a917dd95, type: 2}
     weight: 1
