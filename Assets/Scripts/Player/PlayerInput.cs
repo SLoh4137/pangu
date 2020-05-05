@@ -16,7 +16,7 @@ namespace pangu
             inputActions = new PlayerInputActions();
             control = GetComponent<PlayerControl>();
         }
-
+        
         void OnMovement(InputAction.CallbackContext context)
         {
             control.MoveHorizontal = context.ReadValue<float>();

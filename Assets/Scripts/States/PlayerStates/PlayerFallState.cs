@@ -17,6 +17,14 @@ namespace pangu
             {
                 animator.SetBool(PlayerTransition.isGrounded.ToString(), true);
             }
+
+            if(Control.MoveHorizontal != 0)
+            {
+                Rigidbody2D rb = Control.RigidBody;
+                rb.velocity = new Vector2(Control.Speed * Control.MoveHorizontal, rb.velocity.y);
+            }
+
+            
         }
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 

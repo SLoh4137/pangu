@@ -33,6 +33,11 @@ namespace pangu
             {
                 Control.Flip();
             }
+
+            if(Control.Jump && Control.DetectGround())
+            {
+                animator.SetTrigger(PlayerTransition.Jump.ToString());
+            }
         }
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 

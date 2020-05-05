@@ -38,7 +38,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b44440a344a3748969a518e1ab3322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  control: {fileID: 0}
 --- !u!1102 &-7954701613178275203
 AnimatorState:
   serializedVersion: 5
@@ -234,7 +233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c49e2f3386ad2244bc4658f56079273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  control: {fileID: 0}
 --- !u!1102 &-4466550270548328568
 AnimatorState:
   serializedVersion: 5
@@ -353,7 +351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db42dba775935d4db3f9100f3c05eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  control: {fileID: 0}
 --- !u!1102 &-2880280944758603938
 AnimatorState:
   serializedVersion: 5
@@ -576,31 +573,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isWalk
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Jump
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: VelocityY
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isGrounded
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -638,7 +635,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a43719945162845b1cc35b864d94dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  control: {fileID: 0}
 --- !u!1102 &354455330175667856
 AnimatorState:
   serializedVersion: 5
@@ -1087,7 +1083,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c49e2f3386ad2244bc4658f56079273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  control: {fileID: 0}
 --- !u!1107 &8135753118610339874
 AnimatorStateMachine:
   serializedVersion: 5
