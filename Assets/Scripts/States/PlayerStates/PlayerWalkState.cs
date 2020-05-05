@@ -15,23 +15,23 @@ namespace pangu
         {
             // If moveHorizontal is non-zero, then accelerate towards it
             // If moveHorizontal is zero, then start decelerating
-            Rigidbody2D rb = control.RigidBody;
-            rb.velocity = new Vector2(control.Speed * control.MoveHorizontal, rb.velocity.y);
+            Rigidbody2D rb = Control.RigidBody;
+            rb.velocity = new Vector2(Control.Speed * Control.MoveHorizontal, rb.velocity.y);
             
             //rb.velocity = Vector2.right *  Mathf.MoveTowards(rb.velocity.x, MoveSpeed * characterControl.MoveHorizontal, acceleration * Time.deltaTime);
             //rb.velocity = Vector2.Lerp(rb.velocity, )
 
-            if (control.MoveHorizontal == 0)
+            if (Control.MoveHorizontal == 0)
             {
                 animator.SetBool(PlayerTransition.isIdle.ToString(), true);
             }
-            else if (control.MoveHorizontal < 0 && control.FacingRight)
+            else if (Control.MoveHorizontal < 0 && Control.FacingRight)
             {
-                control.Flip();
+                Control.Flip();
             }
-            else if (control.MoveHorizontal > 0 && !control.FacingRight)
+            else if (Control.MoveHorizontal > 0 && !Control.FacingRight)
             {
-                control.Flip();
+                Control.Flip();
             }
         }
 

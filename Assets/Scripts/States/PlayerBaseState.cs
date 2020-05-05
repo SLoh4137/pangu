@@ -14,7 +14,12 @@ namespace pangu
     }
     public abstract class PlayerBaseState : StateMachineBehaviour
     {
-        public PlayerControl control;
+        private PlayerControl control;
+        public PlayerControl Control {
+            get {
+                return control; 
+            } 
+        }
 
         public void GetControl(Animator animator) {
             if(control == null) 

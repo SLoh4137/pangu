@@ -381,7 +381,7 @@ MonoBehaviour:
   StartingHealth: 0
   Defense: 0
   Speed: 10
-  JumpForce: 100
+  JumpForce: 500
   AttackRate: 0
   AttackRange: 0
   CritChance: 0

@@ -9,7 +9,7 @@ namespace pangu
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             GetControl(animator);
-            control.RigidBody.AddForce(Vector2.up * control.JumpForce);
+            Control.RigidBody.AddForce(Vector2.up * Control.JumpForce);
             animator.SetBool(PlayerTransition.isGrounded.ToString(), false);
         }
 

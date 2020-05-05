@@ -13,12 +13,12 @@ namespace pangu
 
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if(control.MoveHorizontal != 0)
+            if(Control.MoveHorizontal != 0)
             {
                 animator.SetBool(PlayerTransition.isWalk.ToString(), true);
             }
 
-            if(control.Jump && control.DetectGround())
+            if(Control.Jump && Control.DetectGround())
             {
                 animator.SetTrigger(PlayerTransition.Jump.ToString());
             }
