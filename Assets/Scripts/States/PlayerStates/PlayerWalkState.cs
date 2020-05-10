@@ -15,7 +15,7 @@ namespace pangu
         {
             // If moveHorizontal is non-zero, then accelerate towards it
             // If moveHorizontal is zero, then start decelerating
-            Rigidbody2D rb = Control.RigidBody;
+            Rigidbody2D rb = Control.Rigidbody;
             rb.velocity = new Vector2(Control.Speed * Control.MoveHorizontal, rb.velocity.y);
             
             //rb.velocity = Vector2.right *  Mathf.MoveTowards(rb.velocity.x, MoveSpeed * characterControl.MoveHorizontal, acceleration * Time.deltaTime);

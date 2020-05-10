@@ -13,6 +13,7 @@ namespace pangu
 
         public int Defense;
         public int Speed;
+        public int AirSpeed;
         public int JumpForce;
 
         public float AttackRate;
@@ -50,7 +51,7 @@ namespace pangu
         // Function Getters/Setters
         private Animator animator;
         private Rigidbody2D rb;
-        public Rigidbody2D RigidBody {
+        public Rigidbody2D Rigidbody {
             get { return rb; }
         }
 
