@@ -22,8 +22,6 @@ namespace pangu
 
         #region privatevars
         private HashSet<FlockAgent> agents;
-        private List<FlockAgent> agentsToAdd;
-        private HashSet<FlockAgent> agentsToRemove;
         private float squareMaxSpeed;
         private float squareNeighborRadius;
         private float squareAvoidanceRadius;
@@ -41,8 +39,6 @@ namespace pangu
             squareNeighborRadius = neighborRadius * neighborRadius;
             squareAvoidanceRadius = squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
             agents = new HashSet<FlockAgent>();
-            agentsToAdd = new List<FlockAgent>();
-            agentsToRemove = new HashSet<FlockAgent>();
 
             Initialize();
         }
@@ -52,9 +48,6 @@ namespace pangu
         public void UpdateAgent(FlockAgent agent)
         {
             List<Transform> context = GetNearbyObjects(agent);
-            //FOR DEMO ONLY
-            //agent.GetComponentInChildren<SpriteRenderer>().color = Color.Lerp(Color.white, Color.red, context.Count / 6f);
-
             Vector2 move = behavior.CalculateMove(agent, context, this);
             move *= driveFactor;
             if (move.sqrMagnitude > squareMaxSpeed)
@@ -63,51 +56,6 @@ namespace pangu
             }
             agent.Move(move);
         }
-
-        // void Update()
-        // {
-        //     if (agentsToAdd.Count > 0)
-        //     {
-        //         foreach (FlockAgent agent in agentsToAdd)
-        //         {
-        //             agent.ChangeFlock(this);
-        //             agents.Add(agent);
-
-        //         }
-        //         agentsToAdd.Clear();
-        //     }
-
-        //     if (agentsToRemove.Count > 0)
-        //     {
-        //         foreach (FlockAgent agent in agentsToRemove)
-        //         {
-        //             agents.Remove(agent);
-        //         }
-        //         agentsToRemove.Clear();
-        //     }
-
-
-        //     // Destroy self if no agents in flock
-        //     if (agents.Count == 0)
-        //     {
-        //         Destroy(gameObject);
-        //     }
-
-        //     foreach (FlockAgent agent in agents)
-        //     {
-        //         List<Transform> context = GetNearbyObjects(agent);
-        //         //FOR DEMO ONLY
-        //         //agent.GetComponentInChildren<SpriteRenderer>().color = Color.Lerp(Color.white, Color.red, context.Count / 6f);
-
-        //         Vector2 move = behavior.CalculateMove(agent, context, this);
-        //         move *= driveFactor;
-        //         if (move.sqrMagnitude > squareMaxSpeed)
-        //         {
-        //             move = move.normalized * maxSpeed;
-        //         }
-        //         agent.Move(move);
-        //     }
-        // }
         #endregion lifecycle
 
         private void Initialize()
@@ -147,19 +95,16 @@ namespace pangu
         public void RemoveAgent(FlockAgent agent)
         {
             agents.Remove(agent);
-            //agentsToRemove.Add(agent);
         }
 
         public void AddAgent(FlockAgent agent)
         {
             agents.Add(agent);
-            //agentsToAdd.Add(agent);
         }
 
         public bool IsAgentStolen(FlockAgent agent)
         {
             return !agents.Contains(agent);
-            // return agentsToRemove.Contains(agent) || !agents.Contains(agent);
         }
 
         public void StealAgentFromFlock(FlockAgent agentToSteal, Flock flockToStealFrom)

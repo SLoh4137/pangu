@@ -6,14 +6,14 @@ namespace pangu
 {
     public class FlockManager : Singleton<FlockManager>
     {
-        private HashSet<FlockAgent> allAgents;
+        private List<FlockAgent> allAgents;
         private List<FlockAgent> agentsToAdd;
         private HashSet<FlockAgent> agentsToRemove;
 
         #region lifecylce
         void Awake()
         {
-            allAgents = new HashSet<FlockAgent>();
+            allAgents = new List<FlockAgent>();
             agentsToAdd = new List<FlockAgent>();
             agentsToRemove = new HashSet<FlockAgent>();
         }

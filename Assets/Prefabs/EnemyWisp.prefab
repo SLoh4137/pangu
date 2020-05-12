@@ -157,13 +157,10 @@ MonoBehaviour:
   behavior: {fileID: 11400000, guid: 35830594825ffa64db82c417176449b8, type: 2}
   agentPrefab: {fileID: 181117063034320519, guid: e1dd285c3611b3e4fac295f6026d0c5a,
     type: 3}
-  agentLayer:
-    serializedVersion: 2
-    m_Bits: 1024
   startingCount: 0
   driveFactor: 10
   maxSpeed: 3
-  neighborRadius: 1
+  neighborRadius: 0.25
   avoidanceRadiusMultiplier: 0.5
   color: {r: 0, g: 1, b: 0.9895632, a: 1}
 --- !u!1 &95279342934321397
