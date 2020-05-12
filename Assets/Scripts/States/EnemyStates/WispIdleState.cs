@@ -20,10 +20,7 @@ namespace pangu
             if(nextMoveTime < Time.time) 
             {
                 destination = (Vector2) Control.transform.position + Random.insideUnitCircle * 5;
-                Debug.Log(destination);
                 nextMoveTime = Time.time + IdleTime;
-                Debug.Log(Time.time);
-                Debug.Log(nextMoveTime);
             }
 
             Control.transform.position = Vector2.MoveTowards(Control.transform.position, destination, Control.Speed * Time.deltaTime);

@@ -44,6 +44,8 @@ namespace pangu
             foreach (Collider2D enemy in hitEnemies)
             {
                 Debug.Log("We hit " + enemy.name);
+                
+                control.DealDamage(enemy.GetComponent<EnemyBase>());
             }
         }
 
