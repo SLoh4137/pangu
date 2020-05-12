@@ -31,6 +31,7 @@ namespace pangu
         {
             agentFlock = flock;
             spriteRenderer.color = flock.color;
+            gameObject.layer = flock.gameObject.layer;
         }
 
         public void Move(Vector2 velocity)
@@ -41,8 +42,7 @@ namespace pangu
 
         public void ChangeFlock(Flock newFlock)
         {
-            agentFlock = newFlock;
-            spriteRenderer.color = newFlock.color;
+            Initialize(newFlock);
             transform.parent = newFlock.transform;
         }
 
@@ -50,6 +50,11 @@ namespace pangu
         {
             Collider2D itemCollider = item.GetComponent<Collider2D>();
             return itemCollider != null ? itemCollider.ClosestPoint(transform.position) : (Vector2) item.position;
+        }
+
+        public void DestroyAgent()
+        {
+            Destroy(gameObject);
         }
     }
 }

@@ -8,8 +8,6 @@ namespace pangu
     {
 
         private Animator animator;
-        private Flock flock;
-        public new Flock Flock { get { return flock; } }
 
         private Rigidbody2D rb;
         public new Rigidbody2D Rigidbody { get { return rb; } }
@@ -18,7 +16,6 @@ namespace pangu
         #region lifecycle
         void Awake()
         {
-            flock = GetComponentInChildren<Flock>();
             animator = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
         }

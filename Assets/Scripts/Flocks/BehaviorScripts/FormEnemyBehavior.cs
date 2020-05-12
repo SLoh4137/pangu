@@ -8,14 +8,14 @@ namespace pangu
     public class FormEnemyBehavior : FilteredFlockBehavior
     {
         
-        public Flock flockPrefab;
+        public EnemyBase flockPrefab;
         public int neighborAmount = 50;
 
         public override Vector2 CalculateMove(FlockAgent agent, List<Transform> context, Flock flock)
         {
             // Not even enough transforms in the area to form an enemy
             // If agent already stolen, then don't continue
-            if (context.Count < neighborAmount || flock.IsAgentStolen(agent))
+            if (context.Count < neighborAmount) // || flock.IsAgentStolen(agent))
             {
                 return Vector2.zero;
             }
@@ -23,7 +23,8 @@ namespace pangu
             List<Transform> filteredContext = (filter == null) ? context : filter.Filter(agent, context);
             if (filteredContext.Count >= neighborAmount)
             {
-                Flock enemyFlock = Instantiate(flockPrefab, agent.transform.position, agent.transform.rotation);
+                EnemyBase enemyBase = Instantiate(flockPrefab, agent.transform.position, Quaternion.identity);
+                Flock enemyFlock = enemyBase.Flock;
                 // Try adding enemies in here. Other option is adding in the instantiation of the flock
                 // Capture agents when formed?
                 foreach (Transform neighbor in filteredContext)

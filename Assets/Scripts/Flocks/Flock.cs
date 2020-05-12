@@ -48,48 +48,66 @@ namespace pangu
         }
 
         // Update is called once per frame
-        void Update()
+
+        public void UpdateAgent(FlockAgent agent)
         {
-            if(agentsToAdd.Count > 0) {
-                foreach (FlockAgent agent in agentsToAdd)
-                {
-                    agent.ChangeFlock(this);
-                    agents.Add(agent);
-                    
-                }
-                agentsToAdd.Clear();
-            }
+            List<Transform> context = GetNearbyObjects(agent);
+            //FOR DEMO ONLY
+            //agent.GetComponentInChildren<SpriteRenderer>().color = Color.Lerp(Color.white, Color.red, context.Count / 6f);
 
-            if(agentsToRemove.Count > 0) {
-                foreach(FlockAgent agent in agentsToRemove)
-                {
-                    agents.Remove(agent);
-                }
-                agentsToRemove.Clear();
-            }
-
-
-            // Destroy self if no agents in flock
-            if(agents.Count == 0)
-            { 
-                Destroy(gameObject);
-            }
-
-            foreach (FlockAgent agent in agents)
+            Vector2 move = behavior.CalculateMove(agent, context, this);
+            move *= driveFactor;
+            if (move.sqrMagnitude > squareMaxSpeed)
             {
-                List<Transform> context = GetNearbyObjects(agent);
-                //FOR DEMO ONLY
-                //agent.GetComponentInChildren<SpriteRenderer>().color = Color.Lerp(Color.white, Color.red, context.Count / 6f);
-
-                Vector2 move = behavior.CalculateMove(agent, context, this);
-                move *= driveFactor;
-                if (move.sqrMagnitude > squareMaxSpeed)
-                {
-                    move = move.normalized * maxSpeed;
-                }
-                agent.Move(move);
+                move = move.normalized * maxSpeed;
             }
+            agent.Move(move);
         }
+
+        // void Update()
+        // {
+        //     if (agentsToAdd.Count > 0)
+        //     {
+        //         foreach (FlockAgent agent in agentsToAdd)
+        //         {
+        //             agent.ChangeFlock(this);
+        //             agents.Add(agent);
+
+        //         }
+        //         agentsToAdd.Clear();
+        //     }
+
+        //     if (agentsToRemove.Count > 0)
+        //     {
+        //         foreach (FlockAgent agent in agentsToRemove)
+        //         {
+        //             agents.Remove(agent);
+        //         }
+        //         agentsToRemove.Clear();
+        //     }
+
+
+        //     // Destroy self if no agents in flock
+        //     if (agents.Count == 0)
+        //     {
+        //         Destroy(gameObject);
+        //     }
+
+        //     foreach (FlockAgent agent in agents)
+        //     {
+        //         List<Transform> context = GetNearbyObjects(agent);
+        //         //FOR DEMO ONLY
+        //         //agent.GetComponentInChildren<SpriteRenderer>().color = Color.Lerp(Color.white, Color.red, context.Count / 6f);
+
+        //         Vector2 move = behavior.CalculateMove(agent, context, this);
+        //         move *= driveFactor;
+        //         if (move.sqrMagnitude > squareMaxSpeed)
+        //         {
+        //             move = move.normalized * maxSpeed;
+        //         }
+        //         agent.Move(move);
+        //     }
+        // }
         #endregion lifecycle
 
         private void Initialize()
@@ -104,9 +122,10 @@ namespace pangu
                 );
 
                 newAgent.name = "Agent " + i;
-                
+
                 newAgent.Initialize(this);
-                agents.Add(newAgent);
+                
+                FlockManager.Instance.AddAgent(newAgent);
             }
         }
 
@@ -127,28 +146,31 @@ namespace pangu
 
         public void RemoveAgent(FlockAgent agent)
         {
-            agentsToRemove.Add(agent);
+            agents.Remove(agent);
+            //agentsToRemove.Add(agent);
         }
 
         public void AddAgent(FlockAgent agent)
         {
-            agentsToAdd.Add(agent);
+            agents.Add(agent);
+            //agentsToAdd.Add(agent);
         }
 
         public bool IsAgentStolen(FlockAgent agent)
         {
-            return agentsToRemove.Contains(agent) || !agents.Contains(agent);
+            return !agents.Contains(agent);
+            // return agentsToRemove.Contains(agent) || !agents.Contains(agent);
         }
 
         public void StealAgentFromFlock(FlockAgent agentToSteal, Flock flockToStealFrom)
         {
             // If agent already in flock, no need to steal
-            if(agents.Contains(agentToSteal))
+            if (agents.Contains(agentToSteal))
                 return;
 
             flockToStealFrom.RemoveAgent(agentToSteal);
             AddAgent(agentToSteal);
-            //agentToSteal.ChangeFlock(this);
+            agentToSteal.ChangeFlock(this);
         }
     }
 }
