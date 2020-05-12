@@ -17,7 +17,8 @@ namespace pangu
         public int JumpForce;
 
         public float AttackRate;
-        public float AttackRange;        
+        public float AttackRange;   
+        public int AttackDamage;     
 
         [Range(0, 100)]
         public float CritChance;
@@ -28,6 +29,7 @@ namespace pangu
         public bool Jump;
         public bool Crouch;
         public bool FacingRight;
+        public bool Attacking;
 
         [Header("Character Feel")]
         public float GravityMultiplier = 2.5f;
@@ -50,6 +52,7 @@ namespace pangu
 
         // Function Getters/Setters
         private Animator animator;
+        public Animator Animator { get { return animator; }}
         private Rigidbody2D rb;
         public Rigidbody2D Rigidbody {
             get { return rb; }

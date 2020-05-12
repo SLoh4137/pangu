@@ -9,6 +9,7 @@ namespace pangu
         isIdle,
         isWalk,
         isGrounded,
+        Attack,
         Jump,
         VelocityY,
     }
