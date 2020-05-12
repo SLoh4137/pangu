@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SensingRadius: 0
-  Speed: 10
+  Speed: 5
 --- !u!114 &1610502447179251191
 MonoBehaviour:
   m_ObjectHideFlags: 0

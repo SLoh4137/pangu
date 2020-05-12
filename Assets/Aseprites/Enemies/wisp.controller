@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e7e614adf4df24a98cbad67ec2c274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IdleTime: 50
+  IdleTime: 5
 --- !u!1102 &1580905119691026279
 AnimatorState:
   serializedVersion: 5
