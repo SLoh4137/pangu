@@ -25,14 +25,6 @@ namespace pangu
             {
                 animator.SetBool(PlayerTransition.isIdle.ToString(), true);
             }
-            else if (Control.MoveHorizontal < 0 && Control.FacingRight)
-            {
-                Control.Flip();
-            }
-            else if (Control.MoveHorizontal > 0 && !Control.FacingRight)
-            {
-                Control.Flip();
-            }
 
             if(Control.Jump && Control.DetectGround())
             {

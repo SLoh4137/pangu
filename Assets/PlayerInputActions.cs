@@ -46,7 +46,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""name"": ""Mouse"",
                     ""type"": ""Value"",
                     ""id"": ""34c35439-68ac-4e32-91bd-9d3d08c96793"",
-                    ""expectedControlType"": ""Axis"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 },

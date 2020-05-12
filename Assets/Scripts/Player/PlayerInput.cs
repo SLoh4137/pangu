@@ -32,7 +32,7 @@ namespace pangu
         void OnCrouch(InputAction.CallbackContext context)
         {
             control.Crouch = context.ReadValue<float>() != 0f;
-        }
+        } 
 
         void OnAttack(InputAction.CallbackContext context)
         {
@@ -40,6 +40,17 @@ namespace pangu
             Debug.Log(control.Attacking);
         }
 
+        void OnMousePosition(InputAction.CallbackContext context)
+        {
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>());
+            if(mousePos.x < transform.position.x && control.FacingRight)
+            {
+                control.Flip();
+            } else if(mousePos.x > transform.position.x && !control.FacingRight)
+            {
+                control.Flip();
+            }
+        }
 
         void OnEnable()
         {
@@ -51,6 +62,7 @@ namespace pangu
             inputActions.PlayerControls.Crouch.canceled += OnCrouch;
             inputActions.PlayerControls.Attack.performed += OnAttack;
             inputActions.PlayerControls.Attack.canceled += OnAttack;
+            inputActions.PlayerControls.Mouse.performed += OnMousePosition;
         }
 
         void OnDisable()
@@ -62,6 +74,7 @@ namespace pangu
             inputActions.PlayerControls.Crouch.canceled -= OnCrouch;
             inputActions.PlayerControls.Attack.performed -= OnAttack;
             inputActions.PlayerControls.Attack.canceled -= OnAttack;
+            inputActions.PlayerControls.Mouse.performed -= OnMousePosition;
             inputActions.Disable();
         }
     }
