@@ -49,7 +49,7 @@ namespace pangu
 
         void OnDrawGizmos()
         {
-            if (attackPoint == null) return;
+            if (attackPoint == null || control.Stats == null) return;
 
             Gizmos.DrawWireSphere(attackPoint.position, control.Stats.AttackRange.Value);
         }

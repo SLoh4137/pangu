@@ -6,16 +6,20 @@ namespace pangu
 {
     public class FlockManager : Singleton<FlockManager>
     {
+        public Flock UnclaimedFlock;
         private List<FlockAgent> allAgents;
         private List<FlockAgent> agentsToAdd;
         private HashSet<FlockAgent> agentsToRemove;
 
-        #region lifecylce
+        #region lifecycle
         void Awake()
         {
             allAgents = new List<FlockAgent>();
             agentsToAdd = new List<FlockAgent>();
             agentsToRemove = new HashSet<FlockAgent>();
+            
+            Flock flockPrefab = Resources.Load<Flock>("UnclaimedFlock");
+            UnclaimedFlock = Instantiate(flockPrefab, transform.position, transform.rotation, transform);
         }
 
         void Update()
@@ -44,7 +48,7 @@ namespace pangu
                 agentsToRemove.Clear();
             }
         }
-        #endregion lifecylce
+        #endregion lifecycle
 
         public void AddAgent(FlockAgent agent)
         {
@@ -54,6 +58,7 @@ namespace pangu
         public void RemoveAgent(FlockAgent agent)
         {
             agentsToRemove.Add(agent);
+            agent.ChangeFlock(UnclaimedFlock);
         }
     }
 }

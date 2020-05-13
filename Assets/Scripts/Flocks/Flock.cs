@@ -39,7 +39,10 @@ namespace pangu
             squareNeighborRadius = neighborRadius * neighborRadius;
             squareAvoidanceRadius = squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
             agents = new HashSet<FlockAgent>();
+        }
 
+        void Start()
+        {
             Initialize();
         }
 
@@ -55,6 +58,15 @@ namespace pangu
                 move = move.normalized * maxSpeed;
             }
             agent.Move(move);
+        }
+
+        private void OnDestroy()
+        {
+            foreach (FlockAgent agent in agents)
+            {
+                // For now destroys every agent, can implement logic to only destroy a portion and release the rest later
+                FlockManager.Instance.RemoveAgent(agent);
+            }
         }
         #endregion lifecycle
 
@@ -72,7 +84,7 @@ namespace pangu
                 newAgent.name = "Agent " + i;
 
                 newAgent.Initialize(this);
-                
+
                 FlockManager.Instance.AddAgent(newAgent);
             }
         }
