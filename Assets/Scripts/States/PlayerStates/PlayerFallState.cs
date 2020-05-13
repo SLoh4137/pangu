@@ -21,7 +21,7 @@ namespace pangu
             if(Control.MoveHorizontal != 0)
             {
                 Rigidbody2D rb = Control.Rigidbody;
-                rb.velocity = new Vector2(Control.AirSpeed * Control.MoveHorizontal, rb.velocity.y);
+                rb.velocity = new Vector2(Control.Stats.AirSpeed.Value * Control.MoveHorizontal, rb.velocity.y);
             }
 
             

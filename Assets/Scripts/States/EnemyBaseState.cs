@@ -4,6 +4,15 @@ using UnityEngine;
 
 namespace pangu
 {
+    public enum EnemyTransition
+    {
+        isIdle,
+        isWalk,
+        isPlayerSensed,
+        isPlayerInRange,
+        isDead,
+        Hurt,
+    }
     public abstract class EnemyBaseState : StateMachineBehaviour
     {
         private EnemyBase control;

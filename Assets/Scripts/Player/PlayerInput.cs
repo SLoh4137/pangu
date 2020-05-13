@@ -18,7 +18,7 @@ namespace pangu
             control = GetComponent<PlayerControl>();
             combat = GetComponent<PlayerCombat>();
         }
-        
+
         void OnMovement(InputAction.CallbackContext context)
         {
             control.MoveHorizontal = context.ReadValue<float>();
@@ -32,21 +32,21 @@ namespace pangu
         void OnCrouch(InputAction.CallbackContext context)
         {
             control.Crouch = context.ReadValue<float>() != 0f;
-        } 
+        }
 
         void OnAttack(InputAction.CallbackContext context)
         {
             control.Attacking = context.ReadValue<float>() != 0f;
-            Debug.Log(control.Attacking);
         }
 
         void OnMousePosition(InputAction.CallbackContext context)
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>());
-            if(mousePos.x < transform.position.x && control.FacingRight)
+            if (mousePos.x < transform.position.x && control.FacingRight)
             {
                 control.Flip();
-            } else if(mousePos.x > transform.position.x && !control.FacingRight)
+            }
+            else if (mousePos.x > transform.position.x && !control.FacingRight)
             {
                 control.Flip();
             }

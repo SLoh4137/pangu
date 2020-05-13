@@ -6,20 +6,7 @@ namespace pangu
 {
     public interface ICharacter
     {
-        #region publicvars
-        int MaxHealth { get; set; }
-        int Health { get; set; }
-        // public int Defense;
-        // public int Speed;
-        // public int JumpForce;
-
-        // public float AttackRate;
-        // public float AttackRange;
-
-        // [Range(0, 100)]
-        // public float CritChance;
-        // public int CritDamageMult;
-        #endregion publicvars
+        CharacterStats Stats { get; set; }
 
         void TakeDamage(int damage);
         void DealDamage(ICharacter character);

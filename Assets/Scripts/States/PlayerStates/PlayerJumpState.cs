@@ -9,7 +9,7 @@ namespace pangu
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             GetControl(animator);
-            Control.Rigidbody.AddForce(Vector2.up * Control.JumpForce);
+            Control.Rigidbody.AddForce(Vector2.up * Control.Stats.JumpForce.Value);
             animator.SetBool(PlayerTransition.isGrounded.ToString(), false);
         }
 
@@ -18,7 +18,7 @@ namespace pangu
             if(Control.MoveHorizontal != 0)
             {
                 Rigidbody2D rb = Control.Rigidbody;
-                rb.velocity = new Vector2(Control.AirSpeed * Control.MoveHorizontal, rb.velocity.y);
+                rb.velocity = new Vector2(Control.Stats.AirSpeed.Value * Control.MoveHorizontal, rb.velocity.y);
             }
         }
 

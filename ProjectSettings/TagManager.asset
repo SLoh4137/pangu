@@ -17,10 +17,10 @@ TagManager:
   - Obstacles
   - Player
   - FreeAgents
-  - Hitbox
+  - EnemyAgents
   - Hurtbox
   - Enemy
-  - 
+  - EnemyHitBox
   - 
   - 
   - 

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 95279342250521780}
   - component: {fileID: 95279342250521783}
   - component: {fileID: 95279342250521738}
-  - component: {fileID: 95279342250521781}
-  - component: {fileID: 1610502447179251191}
+  - component: {fileID: 7528832450511987955}
+  - component: {fileID: 6732246020862369099}
   m_Layer: 13
   m_Name: EnemyWisp
   m_TagString: Enemy
@@ -128,7 +128,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &95279342250521781
+--- !u!114 &7528832450511987955
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,9 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d9213b0ba028f43a4b14da92ebebb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SensingRadius: 0
-  Speed: 5
---- !u!114 &1610502447179251191
+--- !u!114 &6732246020862369099
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,18 +149,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 95279342250521777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d1f68a8258253b40a6b97ff7211ded2, type: 3}
+  m_Script: {fileID: 11500000, guid: 30e061348b8430b43a872ea32648334a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behavior: {fileID: 11400000, guid: 35830594825ffa64db82c417176449b8, type: 2}
-  agentPrefab: {fileID: 181117063034320519, guid: e1dd285c3611b3e4fac295f6026d0c5a,
-    type: 3}
-  startingCount: 0
-  driveFactor: 10
-  maxSpeed: 3
-  neighborRadius: 0.25
-  avoidanceRadiusMultiplier: 0.5
-  color: {r: 0, g: 1, b: 0.9895632, a: 1}
+  startingStats: {fileID: 11400000, guid: 2aa869ca69ab6084a84acca39c4c28f2, type: 2}
+  Health: 0
+  MaxHealth: 0
 --- !u!1 &95279342934321397
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,7 +165,8 @@ GameObject:
   m_Component:
   - component: {fileID: 95279342934321354}
   - component: {fileID: 95279342934321355}
-  m_Layer: 11
+  - component: {fileID: 9068589954288760569}
+  m_Layer: 14
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,6 +203,18 @@ CircleCollider2D:
   m_Offset: {x: -0.3, y: 0.9}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!114 &9068589954288760569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95279342934321397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28071d350eaa6d8458005de479fd229f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &95279343224511997
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +224,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 95279343224511986}
-  m_Layer: 0
+  - component: {fileID: 4346983354820290364}
+  m_Layer: 11
   m_Name: Flock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,3 +246,24 @@ Transform:
   m_Father: {fileID: 95279342250521782}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4346983354820290364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95279343224511997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1f68a8258253b40a6b97ff7211ded2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behavior: {fileID: 11400000, guid: 35830594825ffa64db82c417176449b8, type: 2}
+  agentPrefab: {fileID: 181117063034320519, guid: e1dd285c3611b3e4fac295f6026d0c5a,
+    type: 3}
+  startingCount: 0
+  driveFactor: 10
+  maxSpeed: 3
+  neighborRadius: 0.25
+  avoidanceRadiusMultiplier: 0.5
+  color: {r: 0, g: 1, b: 0.9895632, a: 1}

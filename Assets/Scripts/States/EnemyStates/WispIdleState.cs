@@ -23,7 +23,7 @@ namespace pangu
                 nextMoveTime = Time.time + IdleTime;
             }
 
-            Control.transform.position = Vector2.MoveTowards(Control.transform.position, destination, Control.Speed * Time.deltaTime);
+            Control.transform.position = Vector2.MoveTowards(Control.transform.position, destination, Control.Stats.Speed.Value * Time.deltaTime);
         }
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 

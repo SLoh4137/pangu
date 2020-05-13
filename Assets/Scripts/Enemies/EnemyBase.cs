@@ -4,21 +4,16 @@ using UnityEngine;
 
 namespace pangu
 {
-    [RequireComponent(typeof(Flock))]
     public abstract class EnemyBase : MonoBehaviour, ICharacter
     {
-        public int SensingRadius;
-        public int Speed;
-
-        public int MaxHealth { get; set; }
-        public int Health { get; set; }
+        public CharacterStats Stats {get; set; }
 
         protected Flock flock;
         public Flock Flock {
             get {
                 if(flock == null)
                 {
-                    flock = GetComponent<Flock>();
+                    flock = GetComponentInChildren<Flock>();
                 }
                 return flock;
             } 

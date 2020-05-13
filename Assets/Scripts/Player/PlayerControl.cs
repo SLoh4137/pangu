@@ -5,24 +5,11 @@ using UnityEngine;
 namespace pangu
 {
     [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(CharacterStats))]
     public class PlayerControl : MonoBehaviour, ICharacter 
     {
         #region publicVars
-        [Header("Character")]
-        public int StartingHealth;
-
-        public int Defense;
-        public int Speed;
-        public int AirSpeed;
-        public int JumpForce;
-
-        public float AttackRate;
-        public float AttackRange;   
-        public int AttackDamage;     
-
-        [Range(0, 100)]
-        public float CritChance;
-        public int CritDamageMult;
+        public CharacterStats Stats { get; set; }
 
         [Header("Input")]
         public float MoveHorizontal;
@@ -58,17 +45,13 @@ namespace pangu
             get { return rb; }
         }
 
-        public int MaxHealth { get; set; }
-        public int Health { get; set; }
-
         #region lifecycle
         void Awake()
         {
             FacingRight = true;
             animator = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
-            MaxHealth = StartingHealth;
-            Health = MaxHealth;
+            Stats = GetComponent<CharacterStats>();
 
             Collider2D collider = GetComponent<Collider2D>();
 
@@ -120,12 +103,13 @@ namespace pangu
         #region ICharacter
         public void TakeDamage(int damage) 
         {
-            Health -= damage;
+            Stats.Health -= damage;
         }
 
         public void DealDamage(ICharacter character)
         {
-            int damage = 0;
+            int damage = Mathf.CeilToInt(Stats.AttackDamage.Value);
+            //Stats.AttackRange += 1;
             character.TakeDamage(damage);
         }
         #endregion

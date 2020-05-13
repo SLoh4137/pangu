@@ -29,7 +29,7 @@ namespace pangu
                 return;
             }
 
-            nextAttackTime = Time.time + 1f / control.AttackRate;
+            nextAttackTime = Time.time + 1f / control.Stats.AttackRate.Value;
             OnAttack();
         }
 
@@ -38,14 +38,12 @@ namespace pangu
             control.Animator.SetTrigger(PlayerTransition.Attack.ToString());
             
             // Detect enemies within range
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, control.AttackRange, enemyLayers);
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, control.Stats.AttackRange.Value, enemyLayers);
 
             // Damage enemies
             foreach (Collider2D enemy in hitEnemies)
-            {
-                Debug.Log("We hit " + enemy.name);
-                
-                control.DealDamage(enemy.GetComponent<EnemyBase>());
+            {  
+                control.DealDamage(enemy.GetComponent<ReferenceControl>().Control);
             }
         }
 
@@ -53,7 +51,7 @@ namespace pangu
         {
             if (attackPoint == null) return;
 
-            Gizmos.DrawWireSphere(attackPoint.position, control.AttackRange);
+            Gizmos.DrawWireSphere(attackPoint.position, control.Stats.AttackRange.Value);
         }
     }
 }
