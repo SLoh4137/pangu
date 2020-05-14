@@ -10,6 +10,7 @@ namespace pangu
     {
         #region publicVars
         public CharacterStats Stats { get; set; }
+        public Transform Hurtbox;
 
         [Header("Input")]
         public float MoveHorizontal;

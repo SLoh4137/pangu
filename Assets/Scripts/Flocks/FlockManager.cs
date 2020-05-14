@@ -68,7 +68,7 @@ namespace pangu
             agentsToRemove.Add(agent);
             agent.transform.parent = transform;
             //agent.markedForDeletion = true;
-            //agent.ChangeFlock(UnclaimedFlock);
+            agent.ChangeFlock(UnclaimedFlock);
         }
 
         public uint GetNextID()

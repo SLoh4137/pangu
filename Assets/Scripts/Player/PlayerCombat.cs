@@ -7,7 +7,7 @@ namespace pangu
     [RequireComponent(typeof(PlayerControl))]
     public class PlayerCombat : MonoBehaviour
     {
-
+        public Transform hurtBox;
         public PlayerControl control;
         public Transform attackPoint;
         public LayerMask enemyLayers;
@@ -26,6 +26,7 @@ namespace pangu
             // Can't attack yet
             if (nextAttackTime >= Time.time || !control.Attacking)
             {
+                //hurtBox.gameObject.SetActive(false);
                 return;
             }
 
@@ -38,21 +39,22 @@ namespace pangu
             control.Animator.SetTrigger(PlayerTransition.Attack.ToString());
             
             // Detect enemies within range
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, control.Stats.AttackRange.Value, enemyLayers);
+            //hurtBox.gameObject.SetActive(true);
+            // Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, control.Stats.AttackRange.Value, enemyLayers);
 
-            // Damage enemies
-            foreach (Collider2D enemy in hitEnemies)
-            {  
-                control.DealDamage(enemy.GetComponent<ReferenceControl>().Control);
-            }
+            // // Damage enemies
+            // foreach (Collider2D enemy in hitEnemies)
+            // {  
+            //     control.DealDamage(enemy.GetComponent<ReferenceCharacter>().Character);
+            // }
         }
 
-        void OnDrawGizmos()
-        {
-            if (attackPoint == null || control.Stats == null) return;
+        // void OnDrawGizmos()
+        // {
+        //     if (attackPoint == null || control.Stats == null) return;
 
-            Gizmos.DrawWireSphere(attackPoint.position, control.Stats.AttackRange.Value);
-        }
+        //     Gizmos.DrawWireSphere(attackPoint.position, control.Stats.AttackRange.Value);
+        // }
     }
 }
 
