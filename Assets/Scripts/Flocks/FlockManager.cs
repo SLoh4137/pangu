@@ -42,10 +42,9 @@ namespace pangu
 
             if (agentsToRemove.Count > 0)
             {
-                Debug.Log("Needs to remove: " + agentsToRemove.Count);
                 foreach (FlockAgent agent in agentsToRemove)
                 {
-                    Debug.Log(allAgents.Remove(agent));
+                    allAgents.Remove(agent);
                     agent.DestroyAgent();
                 }
                 agentsToRemove.Clear();
@@ -55,7 +54,6 @@ namespace pangu
             foreach (FlockAgent agent in allAgents)
             {
                 agent.AgentFlock.UpdateAgent(agent);
-
             }
         }
         #endregion lifecycle
