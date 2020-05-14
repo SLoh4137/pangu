@@ -60,8 +60,9 @@ namespace pangu
             agent.Move(move);
         }
 
-        private void OnDestroy()
+        public void DestroyFlock()
         {
+            Debug.Log("Number in flock: " + agents.Count);
             foreach (FlockAgent agent in agents)
             {
                 // For now destroys every agent, can implement logic to only destroy a portion and release the rest later
@@ -81,10 +82,9 @@ namespace pangu
                     transform
                 );
 
-                newAgent.name = "Agent " + i;
-
-                newAgent.Initialize(this);
-
+                uint id = FlockManager.Instance.GetNextID();
+                newAgent.name = "Agent " + id;
+                newAgent.Initialize(this, id);
                 FlockManager.Instance.AddAgent(newAgent);
             }
         }

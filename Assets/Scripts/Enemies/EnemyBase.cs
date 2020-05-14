@@ -23,6 +23,12 @@ namespace pangu
         public abstract void TakeDamage(int damage);
 
         public abstract void DealDamage(ICharacter character);
+
+        public void DestroyEnemy()
+        {
+            Flock.DestroyFlock();
+            Destroy(gameObject);
+        }
     }
 }
 

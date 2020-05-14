@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638fdc234d4449e4e8eef65fb01b8b72, type: 3}
   m_Name: Wisp Stats
   m_EditorClassIdentifier: 
-  StartingHealth: 25
+  StartingHealth: 5
   Defense: 0
   Speed: 5
   AirSpeed: 5
@@ -20,6 +20,7 @@ MonoBehaviour:
   AttackRate: 1
   AttackRange: 5
   AttackDamage: 5
+  Knockback: 0
   CritChance: 0
   CritDamageMultiplier: 0
   SensingRadius: 10

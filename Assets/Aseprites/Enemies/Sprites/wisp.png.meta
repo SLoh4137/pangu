@@ -89,6 +89,12 @@ TextureImporter:
   - first:
       213: 5910911202467019519
     second: wisp 28
+  - first:
+      213: 2910728722283703660
+    second: wisp 29
+  - first:
+      213: 1783782873835434052
+    second: wisp 30
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -148,7 +154,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 160
+    maxTextureSize: 192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -315,8 +321,8 @@ TextureImporter:
       name: wisp 6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
+        x: 160
+        y: 128
         width: 32
         height: 32
       alignment: 7
@@ -336,7 +342,7 @@ TextureImporter:
       name: wisp 7
       rect:
         serializedVersion: 2
-        x: 32
+        x: 0
         y: 96
         width: 32
         height: 32
@@ -357,7 +363,7 @@ TextureImporter:
       name: wisp 8
       rect:
         serializedVersion: 2
-        x: 64
+        x: 32
         y: 96
         width: 32
         height: 32
@@ -378,7 +384,7 @@ TextureImporter:
       name: wisp 9
       rect:
         serializedVersion: 2
-        x: 96
+        x: 64
         y: 96
         width: 32
         height: 32
@@ -399,7 +405,7 @@ TextureImporter:
       name: wisp 10
       rect:
         serializedVersion: 2
-        x: 128
+        x: 96
         y: 96
         width: 32
         height: 32
@@ -420,8 +426,8 @@ TextureImporter:
       name: wisp 11
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
+        x: 128
+        y: 96
         width: 32
         height: 32
       alignment: 7
@@ -441,8 +447,8 @@ TextureImporter:
       name: wisp 12
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
+        x: 160
+        y: 96
         width: 32
         height: 32
       alignment: 7
@@ -483,7 +489,7 @@ TextureImporter:
       name: wisp 14
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 64
         width: 32
         height: 32
@@ -504,7 +510,7 @@ TextureImporter:
       name: wisp 15
       rect:
         serializedVersion: 2
-        x: 96
+        x: 32
         y: 64
         width: 32
         height: 32
@@ -525,7 +531,7 @@ TextureImporter:
       name: wisp 16
       rect:
         serializedVersion: 2
-        x: 128
+        x: 64
         y: 64
         width: 32
         height: 32
@@ -567,8 +573,8 @@ TextureImporter:
       name: wisp 18
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 96
+        y: 64
         width: 32
         height: 32
       alignment: 7
@@ -588,8 +594,8 @@ TextureImporter:
       name: wisp 19
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 128
+        y: 64
         width: 32
         height: 32
       alignment: 7
@@ -609,8 +615,8 @@ TextureImporter:
       name: wisp 20
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 160
+        y: 64
         width: 32
         height: 32
       alignment: 7
@@ -630,7 +636,7 @@ TextureImporter:
       name: wisp 21
       rect:
         serializedVersion: 2
-        x: 96
+        x: 0
         y: 32
         width: 32
         height: 32
@@ -651,7 +657,7 @@ TextureImporter:
       name: wisp 22
       rect:
         serializedVersion: 2
-        x: 128
+        x: 32
         y: 32
         width: 32
         height: 32
@@ -672,8 +678,8 @@ TextureImporter:
       name: wisp 23
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 64
+        y: 32
         width: 32
         height: 32
       alignment: 7
@@ -693,8 +699,8 @@ TextureImporter:
       name: wisp 24
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 96
+        y: 32
         width: 32
         height: 32
       alignment: 7
@@ -714,8 +720,8 @@ TextureImporter:
       name: wisp 25
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 128
+        y: 32
         width: 32
         height: 32
       alignment: 7
@@ -735,8 +741,8 @@ TextureImporter:
       name: wisp 26
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
+        x: 160
+        y: 32
         width: 32
         height: 32
       alignment: 7
@@ -756,7 +762,7 @@ TextureImporter:
       name: wisp 27
       rect:
         serializedVersion: 2
-        x: 128
+        x: 0
         y: 0
         width: 32
         height: 32
@@ -790,6 +796,48 @@ TextureImporter:
       bones: []
       spriteID: ffa7ce9db66c70250800000000000000
       internalID: 5910911202467019519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp 29
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6d2f39e95cf46820800000000000000
+      internalID: 2910728722283703660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp 30
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 440f267a21541c810800000000000000
+      internalID: 1783782873835434052
       vertices: []
       indices: 
       edges: []

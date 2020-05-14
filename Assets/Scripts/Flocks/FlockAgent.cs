@@ -9,6 +9,7 @@ namespace pangu
     {
 
         #region privatevars
+        private uint id;
         private Flock agentFlock;
         private Collider2D agentCollider;
         private SpriteRenderer spriteRenderer;
@@ -19,6 +20,7 @@ namespace pangu
         public Collider2D AgentCollider { get { return agentCollider; } }
         #endregion getters
 
+        public bool markedForDeletion = false;
 
         // Start is called before the first frame update
         void Awake()
@@ -27,8 +29,9 @@ namespace pangu
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
 
-        public void Initialize(Flock flock)
+        public void Initialize(Flock flock, uint _id)
         {
+            id = _id;
             agentFlock = flock;
             spriteRenderer.color = flock.color;
             gameObject.layer = flock.gameObject.layer;
@@ -42,7 +45,7 @@ namespace pangu
 
         public void ChangeFlock(Flock newFlock)
         {
-            Initialize(newFlock);
+            Initialize(newFlock, id);
             transform.parent = newFlock.transform;
         }
 
@@ -55,6 +58,18 @@ namespace pangu
         public void DestroyAgent()
         {
             Destroy(gameObject);
+        }
+
+        public override bool Equals(object other)
+        {
+            if(!(other is FlockAgent)) return false;
+
+            return id == ((FlockAgent) other).id;
+        }
+
+        public override int GetHashCode()
+        {
+            return (int) id;
         }
     }
 }

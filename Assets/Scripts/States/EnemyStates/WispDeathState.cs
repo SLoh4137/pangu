@@ -18,7 +18,7 @@ namespace pangu
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            Destroy(Control.gameObject);
+            Control.DestroyEnemy();
         }
     }
 }
