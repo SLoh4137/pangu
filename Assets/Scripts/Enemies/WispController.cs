@@ -10,15 +10,10 @@ namespace pangu
 
         private Animator animator;
 
-        private Rigidbody2D rb;
-        public new Rigidbody2D Rigidbody { get { return rb; } }
-
-
         #region lifecycle
         void Awake()
         {
             animator = GetComponent<Animator>();
-            rb = GetComponent<Rigidbody2D>();
             Stats = GetComponent<CharacterStats>();
         }
 

@@ -22,7 +22,7 @@ namespace pangu
                 destination = (Vector2) Control.transform.position + Random.insideUnitCircle * 5;
                 nextMoveTime = Time.time + IdleTime;
             }
-
+            //Control.Rigidbody.MovePosition(Vector2.MoveTowards(Control.transform.position, destination, Control.Stats.Speed.Value * Time.deltaTime));
             Control.transform.position = Vector2.MoveTowards(Control.transform.position, destination, Control.Stats.Speed.Value * Time.deltaTime);
         }
 
