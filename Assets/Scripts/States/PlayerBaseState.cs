@@ -11,6 +11,7 @@ namespace pangu
         isGrounded,
         Attack,
         Jump,
+        Hurt,
         VelocityY,
     }
     public abstract class PlayerBaseState : StateMachineBehaviour

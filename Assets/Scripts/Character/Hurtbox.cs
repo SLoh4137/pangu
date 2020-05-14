@@ -26,7 +26,6 @@ namespace pangu
             // If has colliding layer
             if (mask == (mask | (1 << other.gameObject.layer)))
             {
-                Debug.Log("Entered " + other.name);
                 ReferenceCharacter otherRef = other.GetComponent<ReferenceCharacter>();
                 if (otherRef != null && otherRef.Character != null)
                 {

@@ -18,7 +18,7 @@ MonoBehaviour:
   AirSpeed: 5
   JumpForce: 0
   AttackRate: 1
-  AttackRange: 5
+  AttackRange: 0.2
   AttackDamage: 5
   Knockback: 0
   CritChance: 0

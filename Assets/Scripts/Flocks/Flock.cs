@@ -62,7 +62,6 @@ namespace pangu
 
         public void DestroyFlock()
         {
-            Debug.Log("Number in flock: " + agents.Count);
             foreach (FlockAgent agent in agents)
             {
                 // For now destroys every agent, can implement logic to only destroy a portion and release the rest later

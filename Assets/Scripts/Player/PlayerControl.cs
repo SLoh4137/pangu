@@ -104,6 +104,8 @@ namespace pangu
         #region ICharacter
         public void TakeDamage(int damage) 
         {
+            Debug.Log("Player was damaged!");
+            animator.SetTrigger(PlayerTransition.Hurt.ToString());
             Stats.Health -= damage;
         }
 

@@ -17,18 +17,24 @@ namespace pangu
 
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if(nextMoveTime < Time.time) 
+            if (nextMoveTime < Time.time)
             {
-                destination = (Vector2) Control.transform.position + Random.insideUnitCircle * 5;
+                destination = (Vector2)Control.transform.position + Random.insideUnitCircle * 5;
                 nextMoveTime = Time.time + IdleTime;
             }
             //Control.Rigidbody.MovePosition(Vector2.MoveTowards(Control.transform.position, destination, Control.Stats.Speed.Value * Time.deltaTime));
-            Control.transform.position = Vector2.MoveTowards(Control.transform.position, destination, Control.Stats.Speed.Value * Time.deltaTime);
+            Vector2 moveVector = Vector2.MoveTowards(Control.transform.position, destination, Control.Stats.Speed.Value * Time.deltaTime);
+            Control.transform.position = moveVector;
+
+            if (PathfindingManager.Instance.WithinDistance(Control.transform, Control.Stats.SensingRadius.Value))
+            {
+                animator.SetBool(EnemyTransition.isPlayerSensed.ToString(), true);
+            }
         }
 
-        public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 
+        public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            
+
         }
     }
 }

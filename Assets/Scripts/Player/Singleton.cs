@@ -18,9 +18,18 @@ namespace pangu
             {
                 if (_instance == null)
                 {
-                    GameObject obj = new GameObject();
-                    _instance = obj.AddComponent<T>();
-                    obj.name = typeof(T).ToString();
+                    T foundObject = FindObjectOfType<T>();
+                    if (foundObject != null)
+                    {
+                        _instance = foundObject;
+                    }
+                    else
+                    {
+                        GameObject obj = new GameObject();
+                        _instance = obj.AddComponent<T>();
+                        obj.name = typeof(T).ToString();
+                    }
+
                 }
 
                 return _instance;

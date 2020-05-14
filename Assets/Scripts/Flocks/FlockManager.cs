@@ -9,7 +9,7 @@ namespace pangu
         public Flock UnclaimedFlock;
         private List<FlockAgent> allAgents;
         private List<FlockAgent> agentsToAdd;
-        private HashSet<FlockAgent> agentsToRemove;
+        //private HashSet<FlockAgent> agentsToRemove;
         private bool hasAgentsToRemove;
         private uint idCounter = 0;
 
@@ -18,7 +18,7 @@ namespace pangu
         {
             allAgents = new List<FlockAgent>();
             agentsToAdd = new List<FlockAgent>();
-            agentsToRemove = new HashSet<FlockAgent>();
+            //agentsToRemove = new HashSet<FlockAgent>();
 
             Flock flockPrefab = Resources.Load<Flock>("UnclaimedFlock");
             UnclaimedFlock = Instantiate(flockPrefab, transform.position, transform.rotation, transform);
@@ -35,25 +35,32 @@ namespace pangu
                 agentsToAdd.Clear();
             }
 
-            // if(hasAgentsToRemove)
-            // {
-            //     allAgents.RemoveAll(MarkedForDeletion);
-            // }
-
-            if (agentsToRemove.Count > 0)
+            if(hasAgentsToRemove)
             {
-                foreach (FlockAgent agent in agentsToRemove)
-                {
-                    allAgents.Remove(agent);
-                    agent.DestroyAgent();
-                }
-                agentsToRemove.Clear();
-                allAgents.RemoveAll(MarkedForDeletion); // right now removes the null agents. Might need a better way of cleaning later
+                allAgents.RemoveAll(MarkedForDeletion);
+                hasAgentsToRemove = false;
             }
+
+            // if (agentsToRemove.Count > 0)
+            // {
+            //     foreach (FlockAgent agent in agentsToRemove)
+            //     {
+            //         allAgents.Remove(agent);
+            //         agent.DestroyAgent();
+            //     }
+            //     agentsToRemove.Clear();
+            //     allAgents.RemoveAll(MarkedForDeletion); // right now removes the null agents. Might need a better way of cleaning later
+            // }
 
             foreach (FlockAgent agent in allAgents)
             {
-                agent.AgentFlock.UpdateAgent(agent);
+                if(agent == null)
+                {
+                    hasAgentsToRemove = true;
+                } else {
+                    agent.AgentFlock.UpdateAgent(agent);
+                }
+                
             }
         }
         #endregion lifecycle
@@ -65,10 +72,11 @@ namespace pangu
 
         public void RemoveAgent(FlockAgent agent)
         {
-            agentsToRemove.Add(agent);
+            //agentsToRemove.Add(agent);
             agent.transform.parent = transform;
-            //agent.markedForDeletion = true;
+            agent.markedForDeletion = true;
             agent.ChangeFlock(UnclaimedFlock);
+            hasAgentsToRemove = true;
         }
 
         public uint GetNextID()
@@ -78,8 +86,14 @@ namespace pangu
 
         private static bool MarkedForDeletion(FlockAgent agent)
         {
-            return agent == null;
-            //return agent.markedForDeletion;
+            if(agent == null) return true;
+            if(agent.markedForDeletion) 
+            {
+                agent.DestroyAgent();
+                return true;
+            }
+            return false;
+            //return agent == null || agent.markedForDeletion;
         }
     }
 }

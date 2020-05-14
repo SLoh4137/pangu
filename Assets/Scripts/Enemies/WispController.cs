@@ -32,7 +32,7 @@ namespace pangu
 
         public override void DealDamage(ICharacter character)
         {
-
+            character.TakeDamage((int) Stats.AttackDamage.Value);
         }
 
         public void Death()
