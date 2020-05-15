@@ -9,19 +9,19 @@ namespace pangu
     {
         public SliverOfDivineSenseItem() : base(ItemName.SliverOfDivineSense)
         {
-            InitialStatModifier = new StatModifier(0.5f, StatModType.Flat);
-            AdditionalStatModifier = new StatModifier(0.25f, StatModType.Flat);
+            InitialStatModifier = new StatModifier(1f, StatModType.Flat);
+            AdditionalStatModifier = new StatModifier(0.5f, StatModType.Flat);
         }
 
         public override void AddEffect(CharacterStats stats, int stackNumber)
         {
             if (stackNumber == 1)
             {
-                stats.Defense.AddModifier(InitialStatModifier);
+                stats.AttackRange.AddModifier(InitialStatModifier);
             }
             else
             {
-                stats.Defense.AddModifier(AdditionalStatModifier);
+                stats.AttackRange.AddModifier(AdditionalStatModifier);
             }
         }
 
@@ -29,11 +29,11 @@ namespace pangu
         {
             if (stackNumber == 0)
             {
-                return stats.Defense.RemoveModifer(InitialStatModifier);
+                return stats.AttackRange.RemoveModifer(InitialStatModifier);
             }
             else
             {
-                return stats.Defense.RemoveModifer(AdditionalStatModifier);
+                return stats.AttackRange.RemoveModifer(AdditionalStatModifier);
             }
         }
     }

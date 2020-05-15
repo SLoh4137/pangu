@@ -25,10 +25,10 @@ namespace pangu
         {
             switch (itemName)
             {
-                case ItemName.ExampleItem:
-                    return new ExampleItem();
+                case ItemName.SliverOfDivineSense:
+                    return new SliverOfDivineSenseItem();
                 default:
-                    return new ExampleItem();
+                    throw new MissingComponentException(itemName.ToString() + " not yet added to GetItemClass");
             }
         }
 

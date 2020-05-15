@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ namespace pangu
 {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(CharacterStats))]
-    public class PlayerControl : MonoBehaviour, ICharacter 
+    public class PlayerControl : MonoBehaviour, ICharacter, ICanConsume
     {
         #region publicVars
         public CharacterStats Stats { get; set; }
@@ -36,13 +37,17 @@ namespace pangu
 
         private List<GameObject> _groundDetectionSpheres;
         private Vector2 flipVector = new Vector2(-1, 1);
-        
+
+        public event Action onAttack;
+        public event Action onDefend;
+
 
         // Function Getters/Setters
         private Animator animator;
-        public Animator Animator { get { return animator; }}
+        public Animator Animator { get { return animator; } }
         private Rigidbody2D rb;
-        public Rigidbody2D Rigidbody {
+        public Rigidbody2D Rigidbody
+        {
             get { return rb; }
         }
 
@@ -60,7 +65,7 @@ namespace pangu
             float left = collider.bounds.center.x - collider.bounds.extents.x;
             float right = collider.bounds.center.x + collider.bounds.extents.x;
             _groundDetectionSpheres = new List<GameObject>();
-            
+
 
             if (_groundDetectionSpheres != null)
             {
@@ -72,7 +77,7 @@ namespace pangu
                 _groundDetectionSpheres.Add(bottomRight);
 
                 float distanceBetween = (bottomLeft.transform.position - bottomRight.transform.position).magnitude / GroundDetectionGranularity;
-                for (int i = 1; i < GroundDetectionGranularity - 1; i++) 
+                for (int i = 1; i < GroundDetectionGranularity - 1; i++)
                 {
                     Vector3 pos = bottomLeft.transform.position + Vector3.right * distanceBetween * i;
 
@@ -88,8 +93,9 @@ namespace pangu
             animator.SetFloat(PlayerTransition.VelocityY.ToString(), rb.velocity.y);
         }
 
-        void FixedUpdate() {
-            if(rb.velocity.y < 0f)
+        void FixedUpdate()
+        {
+            if (rb.velocity.y < 0f)
             {
                 rb.velocity += Vector2.down * GravityMultiplier;
             }
@@ -102,11 +108,11 @@ namespace pangu
         #endregion lifecycle
 
         #region ICharacter
-        public void TakeDamage(int damage) 
+        public void TakeDamage(int damage)
         {
-            Debug.Log("Player was damaged!");
+            int damageTaken = (int)Mathf.Clamp(damage - (int)Stats.Defense.Value, 0, float.MaxValue);
             animator.SetTrigger(PlayerTransition.Hurt.ToString());
-            Stats.Health -= damage;
+            Stats.Health -= damageTaken;
         }
 
         public void DealDamage(ICharacter character)
@@ -114,23 +120,29 @@ namespace pangu
             int damage = Mathf.CeilToInt(Stats.AttackDamage.Value);
             //Stats.AttackRange += 1;
             character.TakeDamage(damage);
+
+            if (onAttack != null)
+            {
+                onAttack();
+            }
         }
         #endregion
 
-        public bool DetectGround() {
-            foreach(GameObject sphere in GroundDetectionSpheres) 
+        public bool DetectGround()
+        {
+            foreach (GameObject sphere in GroundDetectionSpheres)
             {
                 RaycastHit2D hit = Physics2D.Raycast(sphere.transform.position, Vector3.down, GroundDetectionDistance, groundLayers);
                 Debug.DrawRay(sphere.transform.position, Vector3.down * GroundDetectionDistance, Color.black);
                 if (hit.collider != null)
-                { 
+                {
                     return true;
                 }
             }
             return false;
         }
 
-        public void Flip() 
+        public void Flip()
         {
             FacingRight = !FacingRight;
             transform.localScale = transform.localScale * flipVector; // flips by multiplying x by -1

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-
 /**
 * Followed https://forum.unity.com/threads/tutorial-character-stats-aka-attributes-system.504095/
 */

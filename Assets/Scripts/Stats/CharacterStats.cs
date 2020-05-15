@@ -68,12 +68,13 @@ namespace pangu
 
         public void AddItem(ItemName itemName)
         {
-            int currentStack;   
+            int currentStack;
             Items.TryGetValue(itemName, out currentStack); // currentStack either gets the value or initialized to 0
             currentStack += 1;
             Items[itemName] = currentStack;
 
             ItemBase item = ItemManager.Instance.GetItem(itemName);
+            Debug.Log("Added: " + item.itemName.ToString());
             item.AddEffect(this, currentStack);
         }
     }

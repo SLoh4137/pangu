@@ -9,7 +9,7 @@ namespace pangu
         StatModifying,
         OnHitAttack,
     }
-    public abstract class ItemBase : MonoBehaviour
+    public abstract class ItemBase
     {
         public int StackCount = 0;
         public ItemName itemName;
@@ -17,7 +17,7 @@ namespace pangu
 
         public ItemBase(ItemName _itemName, ItemType _type)
         {
-            name = _itemName.ToString();
+            // name = _itemName.ToString();
             itemName = _itemName;
             type = _type;
         }
