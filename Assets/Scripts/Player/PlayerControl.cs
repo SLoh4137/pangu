@@ -38,8 +38,8 @@ namespace pangu
         private List<GameObject> _groundDetectionSpheres;
         private Vector2 flipVector = new Vector2(-1, 1);
 
-        public event Action onAttack;
-        public event Action onDefend;
+        public event Action<ICharacter> onAttack;
+        public event Action<ICharacter> onDefend;
 
 
         // Function Getters/Setters
@@ -123,10 +123,21 @@ namespace pangu
 
             if (onAttack != null)
             {
-                onAttack();
+                onAttack(character);
             }
         }
-        #endregion
+        #endregion ICharacter
+
+        #region ICanConsume
+        public void Consume(ItemName itemName)
+        {
+            int currentStack = Stats.AddItem(itemName);
+            ItemBase item = ItemManager.Instance.GetItem(itemName);
+            Debug.Log("Added: " + item.itemName.ToString());
+            item.AddEffect(this, currentStack);
+        }
+
+        #endregion ICanConsume
 
         public bool DetectGround()
         {

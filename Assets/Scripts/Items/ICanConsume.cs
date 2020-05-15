@@ -7,7 +7,9 @@ namespace pangu
     public interface ICanConsume
     {
         CharacterStats Stats { get; }
-        event Action onAttack;
-        event Action onDefend;
+        event Action<ICharacter> onAttack;
+        event Action<ICharacter> onDefend;
+
+        void Consume(ItemName item);
     }
 }

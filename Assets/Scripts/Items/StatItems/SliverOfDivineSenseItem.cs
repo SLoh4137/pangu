@@ -13,27 +13,27 @@ namespace pangu
             AdditionalStatModifier = new StatModifier(0.5f, StatModType.Flat);
         }
 
-        public override void AddEffect(CharacterStats stats, int stackNumber)
+        public override void AddEffect(ICanConsume character, int stackNumber)
         {
             if (stackNumber == 1)
             {
-                stats.AttackRange.AddModifier(InitialStatModifier);
+                character.Stats.AttackRange.AddModifier(InitialStatModifier);
             }
             else
             {
-                stats.AttackRange.AddModifier(AdditionalStatModifier);
+                character.Stats.AttackRange.AddModifier(AdditionalStatModifier);
             }
         }
 
-        public override bool RemoveEffect(CharacterStats stats, int stackNumber)
+        public override bool RemoveEffect(ICanConsume character, int stackNumber)
         {
             if (stackNumber == 0)
             {
-                return stats.AttackRange.RemoveModifer(InitialStatModifier);
+                return character.Stats.AttackRange.RemoveModifer(InitialStatModifier);
             }
             else
             {
-                return stats.AttackRange.RemoveModifer(AdditionalStatModifier);
+                return character.Stats.AttackRange.RemoveModifer(AdditionalStatModifier);
             }
         }
     }

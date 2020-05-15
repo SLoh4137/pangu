@@ -8,6 +8,8 @@ namespace pangu
     {
         private ICharacter character;
         public LayerMask mask;
+
+        private float pastSize;
         // Start is called before the first frame update
         void Awake()
         {
@@ -15,7 +17,17 @@ namespace pangu
         }
         void Start()
         {
-            transform.localScale *= character.Stats.AttackRange.Value;
+            pastSize = character.Stats.AttackRange.Value;
+            transform.localScale *= pastSize;
+        }
+
+        void Update()
+        {
+            if (character.Stats.AttackRange.Value != pastSize)
+            {
+                pastSize = character.Stats.AttackRange.Value;
+                transform.localScale *= pastSize;
+            }
         }
 
         // Need to deal with some way to make hurtbox bigger
@@ -31,14 +43,6 @@ namespace pangu
                 {
                     character.DealDamage(otherRef.Character);
                 }
-            }
-        }
-
-        void OnDrawGizmos()
-        {
-            if (character != null)
-            {
-                Gizmos.DrawWireSphere(transform.position, character.Stats.AttackRange.Value);
             }
         }
     }

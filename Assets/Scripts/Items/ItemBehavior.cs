@@ -25,7 +25,7 @@ namespace pangu
             {
                 Debug.Log("consumed");
                 ICanConsume canConsume = other.GetComponent<ICanConsume>();
-                canConsume.Stats.AddItem(itemName);
+                canConsume.Consume(itemName);
                 //rb.DOMove(other.transform.position, 3);
                 // Could do other things like fly item towards it
                 StartCoroutine(MoveTowardsPlayer(other.transform));

@@ -23,7 +23,7 @@ namespace pangu
         {
             Stats.Health -= damage;
             animator.SetTrigger(EnemyTransition.Hurt.ToString());
-            Debug.Log(gameObject.name + " was damaged");
+            Debug.Log(gameObject.name + " was damaged for " + damage);
             if(Stats.Health <= 0)
             {
                 Death();

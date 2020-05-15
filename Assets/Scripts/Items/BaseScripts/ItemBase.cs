@@ -22,8 +22,8 @@ namespace pangu
             type = _type;
         }
 
-        public abstract void AddEffect(CharacterStats stats, int stackNumber);
-        public abstract bool RemoveEffect(CharacterStats stats, int stackNumber);
+        public abstract void AddEffect(ICanConsume character, int stackNumber);
+        public abstract bool RemoveEffect(ICanConsume character, int stackNumber);
 
         // override object.Equals
         public override bool Equals(object obj)
