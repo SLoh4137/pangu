@@ -9,20 +9,38 @@ namespace pangu
         StatModifying,
         OnHitAttack,
     }
-    public abstract class ItemBase
+    public abstract class ItemBase : MonoBehaviour
     {
         public int StackCount = 0;
-        public string name;
+        public ItemName itemName;
         public ItemType type;
 
-        public ItemBase(string _name, ItemType _type)
+        public ItemBase(ItemName _itemName, ItemType _type)
         {
-            name = _name;
+            name = _itemName.ToString();
+            itemName = _itemName;
             type = _type;
         }
 
-        public abstract void Attach(ICanConsume character);
-        public abstract void Remove(ICanConsume character);
+        public abstract void AddEffect(CharacterStats stats, int stackNumber);
+        public abstract bool RemoveEffect(CharacterStats stats, int stackNumber);
+
+        // override object.Equals
+        public override bool Equals(object obj)
+        {       
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            return itemName == ((ItemBase) obj).itemName;
+        }
+        
+        // override object.GetHashCode
+        public override int GetHashCode()
+        {
+            return (int) itemName;
+        }
     }
 }
 

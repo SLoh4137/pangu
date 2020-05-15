@@ -44,8 +44,13 @@ namespace pangu
         [HideInInspector]
         public Stat SensingRadius;
 
+        [HideInInspector]
+        public IDictionary<ItemName, int> Items;
+
         void Awake()
         {
+            Items = new Dictionary<ItemName, int>();
+
             Health = startingStats.StartingHealth;
             MaxHealth = startingStats.StartingHealth;
             Defense = new Stat(startingStats.Defense);
@@ -58,6 +63,18 @@ namespace pangu
             CritChance = new Stat(startingStats.CritChance);
             CritDamageMultiplier = new Stat(startingStats.CritDamageMultiplier);
             SensingRadius = new Stat(startingStats.SensingRadius);
+        }
+
+
+        public void AddItem(ItemName itemName)
+        {
+            int currentStack;   
+            Items.TryGetValue(itemName, out currentStack); // currentStack either gets the value or initialized to 0
+            currentStack += 1;
+            Items[itemName] = currentStack;
+
+            ItemBase item = ItemManager.Instance.GetItem(itemName);
+            item.AddEffect(this, currentStack);
         }
     }
 }
