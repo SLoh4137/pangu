@@ -120,6 +120,7 @@ namespace pangu
             int damage = Mathf.CeilToInt(Stats.AttackDamage.Value);
             //Stats.AttackRange += 1;
             character.TakeDamage(damage);
+            DamagePopup.Create(character.transform.position, damage);
 
             if (onAttack != null)
             {
