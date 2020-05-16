@@ -39,7 +39,7 @@ namespace pangu
 
         public void DestroyEnemy()
         {
-            Flock.DestroyFlock();
+            //Flock.DestroyFlock();
             Destroy(gameObject);
         }
     }

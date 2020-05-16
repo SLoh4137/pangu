@@ -20,7 +20,7 @@ namespace pangu
             agentsToAdd = new List<FlockAgent>();
             //agentsToRemove = new HashSet<FlockAgent>();
 
-            Flock flockPrefab = Resources.Load<Flock>("UnclaimedFlock");
+            Flock flockPrefab = GameAssets.Instance.UnclaimedFlock;
             UnclaimedFlock = Instantiate(flockPrefab, transform.position, transform.rotation, transform);
         }
 

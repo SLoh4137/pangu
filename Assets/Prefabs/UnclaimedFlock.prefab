@@ -46,7 +46,7 @@ MonoBehaviour:
   behavior: {fileID: 11400000, guid: cf49d799b8c5e114abeac4f0a3a4abb9, type: 2}
   agentPrefab: {fileID: 181117063034320519, guid: e1dd285c3611b3e4fac295f6026d0c5a,
     type: 3}
-  startingCount: 250
+  startingCount: 100
   driveFactor: 10
   maxSpeed: 10
   neighborRadius: 1

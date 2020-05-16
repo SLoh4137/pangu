@@ -56,7 +56,8 @@ namespace pangu
         }
 
         public void DestroyAgent()
-        {
+        {  
+            Instantiate(GameAssets.Instance.pfDestroyedAgentParticles, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 
