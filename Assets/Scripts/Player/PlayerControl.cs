@@ -12,6 +12,7 @@ namespace pangu
         #region publicVars
         public CharacterStats Stats { get; set; }
         public Transform Hurtbox;
+        public HealthBar healthBar;
 
         [Header("Input")]
         public float MoveHorizontal;
@@ -88,6 +89,11 @@ namespace pangu
 
         }
 
+        void Start()
+        {
+            healthBar.InitHealth(Stats.MaxHealth);
+        }
+
         void Update()
         {
             animator.SetFloat(PlayerTransition.VelocityY.ToString(), rb.velocity.y);
@@ -113,6 +119,7 @@ namespace pangu
             int damageTaken = (int)Mathf.Clamp(damage - (int)Stats.Defense.Value, 0, float.MaxValue);
             animator.SetTrigger(PlayerTransition.Hurt.ToString());
             Stats.Health -= damageTaken;
+            healthBar.SetHealth(Stats.Health);
         }
 
         public void DealDamage(ICharacter character)

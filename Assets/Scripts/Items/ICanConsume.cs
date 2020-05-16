@@ -7,6 +7,7 @@ namespace pangu
     public interface ICanConsume
     {
         CharacterStats Stats { get; }
+        Transform transform { get; }
         event Action<ICharacter> onAttack;
         event Action<ICharacter> onDefend;
 
