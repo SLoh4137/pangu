@@ -14,7 +14,10 @@ namespace pangu
             AdditionalStatModifier = new StatModifier(0.5f, StatModType.Flat);
         }
 
-        public override void AddEffect(ICanConsume character, int stackNumber)
+        public override string NameText { get { return "Defensive Talisman"; }}
+        public override string Description { get { return "Casts a protective spell when the user is hurt to reduce damage"; }}
+
+        public override void Add(ICanConsume character, int stackNumber)
         {     
             if (stackNumber == 1)
             {
@@ -27,7 +30,7 @@ namespace pangu
             }
         }
 
-        public override bool RemoveEffect(ICanConsume character, int stackNumber)
+        public override bool Remove(ICanConsume character, int stackNumber)
         {
             if(stackNumber == 0)
             {

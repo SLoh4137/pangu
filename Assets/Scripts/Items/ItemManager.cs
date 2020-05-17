@@ -13,6 +13,7 @@ namespace pangu
     }
     public class ItemManager : Singleton<ItemManager>
     {
+        public ItemText ItemText;
         protected IDictionary<ItemName, ItemBase> allItems;
 
         void Awake()
@@ -49,6 +50,7 @@ namespace pangu
 
             return item;
         }
+
     }
 }
 

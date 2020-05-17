@@ -16,6 +16,9 @@ namespace pangu
         public ItemName itemName;
         public ItemType type;
 
+        public abstract string NameText { get; }
+        public abstract string Description { get; } 
+
         public ItemBase(ItemName _itemName, ItemType _type)
         {
             // name = _itemName.ToString();
@@ -23,8 +26,19 @@ namespace pangu
             type = _type;
         }
 
-        public abstract void AddEffect(ICanConsume character, int stackNumber);
-        public abstract bool RemoveEffect(ICanConsume character, int stackNumber);
+        public void AddEffect(ICanConsume character, int stackNumber)
+        {
+            ItemManager.Instance.ItemText.SetItemText(NameText, Description);
+            Add(character, stackNumber);
+        }
+
+        public bool RemoveEffect(ICanConsume character, int stackNumber)
+        {
+            return Remove(character, stackNumber);
+        }
+
+        public abstract void Add(ICanConsume character, int stackNumber);
+        public abstract bool Remove(ICanConsume character, int stackNumber);
 
         // override object.Equals
         public override bool Equals(object obj)

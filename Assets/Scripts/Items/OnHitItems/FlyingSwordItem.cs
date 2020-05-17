@@ -12,12 +12,16 @@ namespace pangu
             assets = GameAssets.Instance;
         }
 
-        public override void AddEffect(ICanConsume character, int stackNumber)
+        public override string NameText { get { return "Flying Sword"; }}
+        public override string Description { get { return "Adds an additional sword attack when attacking enemies"; }}
+
+
+        public override void Add(ICanConsume character, int stackNumber)
         {
             character.onAttack += AdditionalAttack;
         }
 
-        public override bool RemoveEffect(ICanConsume character, int stackNumber)
+        public override bool Remove(ICanConsume character, int stackNumber)
         {
             character.onAttack -= AdditionalAttack;
             return true;
