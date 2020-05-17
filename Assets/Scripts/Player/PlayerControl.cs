@@ -12,6 +12,7 @@ namespace pangu
         #region publicVars
         public CharacterStats Stats { get; set; }
         public Transform Hurtbox;
+        public Transform Hitbox;
         public HealthBar healthBar;
 
         [Header("Input")]

@@ -9,6 +9,12 @@ namespace pangu
         public Transform pfDamagePopup;
         public GameObject pfDestroyedAgentParticles;
         public Flock UnclaimedFlock;
+        public GameObject pfSwordAttack;
+
+        public GameObject Create(GameObject prefab, Vector2 position, Quaternion rotation, Transform parent)
+        {
+            return Instantiate(prefab, position, rotation, parent);
+        }
     }
 }
 

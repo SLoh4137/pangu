@@ -70,21 +70,20 @@ namespace pangu
         }
         #endregion lifecycle
 
+        public void SpawnMember(Vector2 position, Quaternion rotation)
+        {
+            FlockAgent newAgent = Instantiate(agentPrefab, position, rotation, transform);
+            uint id = FlockManager.Instance.GetNextID();
+            newAgent.name = "Agent " + id;
+            newAgent.Initialize(this, id);
+            FlockManager.Instance.AddAgent(newAgent);
+        }
+
         private void Initialize()
         {
             for (int i = 0; i < startingCount; i++)
             {
-                FlockAgent newAgent = Instantiate(
-                    agentPrefab,
-                    Random.insideUnitCircle * startingCount * AgentDensity,
-                    Quaternion.Euler(Vector2.up * Random.Range(0f, 360f)),
-                    transform
-                );
-
-                uint id = FlockManager.Instance.GetNextID();
-                newAgent.name = "Agent " + id;
-                newAgent.Initialize(this, id);
-                FlockManager.Instance.AddAgent(newAgent);
+                SpawnMember(Random.insideUnitCircle * startingCount * AgentDensity, Quaternion.Euler(Vector2.up * Random.Range(0f, 360f)));
             }
         }
 

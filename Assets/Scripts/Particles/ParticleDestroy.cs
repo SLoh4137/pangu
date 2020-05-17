@@ -12,7 +12,6 @@ namespace pangu
         // Start is called before the first frame update
         void Start()
         {
-            Debug.Log(pSystem.main.duration);
             destroyTime = Time.time + pSystem.main.duration;
         }
 

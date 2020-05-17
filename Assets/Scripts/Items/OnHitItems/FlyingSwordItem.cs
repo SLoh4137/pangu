@@ -6,7 +6,11 @@ namespace pangu
 {
     public class FlyingSwordItem : OnHitItemBase
     {
-        public FlyingSwordItem() : base(ItemName.FlyingSword) { }
+        private GameAssets assets;
+        public FlyingSwordItem() : base(ItemName.FlyingSword)
+        {
+            assets = GameAssets.Instance;
+        }
 
         public override void AddEffect(ICanConsume character, int stackNumber)
         {
@@ -22,6 +26,8 @@ namespace pangu
         public void AdditionalAttack(ICharacter character)
         {
             character.TakeDamage(5);
+            DamagePopup.Create(character.transform.position, 5);
+            assets.Create(assets.pfSwordAttack, character.transform.position, Quaternion.identity, character.transform);
         }
     }
 }
