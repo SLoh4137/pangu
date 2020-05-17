@@ -106,7 +106,7 @@ namespace pangu
             foreach(KeyValuePair<ItemName, int> item in Items)
             {
                 ItemBase itemClass = itemManager.GetItem(item.Key);
-                for(int i = item.Value; i >= 1; i++)
+                for(int i = item.Value; i >= 1; i--)
                 {
                     itemClass.RemoveEffect(character, i);
                 }
