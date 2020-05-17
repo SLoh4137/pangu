@@ -7,6 +7,7 @@ namespace pangu
     public class CharacterStats : MonoBehaviour
     {
         public StartingStats startingStats;
+        public ICanConsume character;
 
         [HideInInspector]
         public int Health;
@@ -49,6 +50,7 @@ namespace pangu
 
         void Awake()
         {
+            character = GetComponent<ICanConsume>();
             Items = new Dictionary<ItemName, int>();
 
             Health = startingStats.StartingHealth;
@@ -73,6 +75,42 @@ namespace pangu
             currentStack += 1;
             Items[itemName] = currentStack;
             return currentStack;
+        }
+
+        public bool RemoveItem(ItemName itemName)
+        {
+            int currentStack;
+            Items.TryGetValue(itemName, out currentStack);
+            if (currentStack == 0)
+            {
+                return false;
+            }
+
+            currentStack -= 1;
+            if (currentStack <= 0)
+            {
+                Items.Remove(itemName);
+            }
+            else
+            {
+                Items[itemName] = currentStack;
+
+            }
+            return true;
+        }
+
+        void OnDestroy() {
+            if(character == null) return;
+
+            ItemManager itemManager = ItemManager.Instance;
+            foreach(KeyValuePair<ItemName, int> item in Items)
+            {
+                ItemBase itemClass = itemManager.GetItem(item.Key);
+                for(int i = item.Value; i >= 1; i++)
+                {
+                    itemClass.RemoveEffect(character, i);
+                }
+            }
         }
     }
 }
