@@ -839,9 +839,9 @@ MonoBehaviour:
   m_RefResolutionY: 1080
   m_UpscaleRT: 1
   m_PixelSnapping: 1
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 0
+  m_CropFrameX: 1
+  m_CropFrameY: 1
+  m_StretchFill: 1
 --- !u!81 &333579999
 AudioListener:
   m_ObjectHideFlags: 0
@@ -877,7 +877,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 60
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2044,7 +2044,7 @@ Transform:
   m_GameObject: {fileID: 950547570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 268239322}
   - {fileID: 2121481927}

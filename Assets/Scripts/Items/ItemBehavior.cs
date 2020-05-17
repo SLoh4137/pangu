@@ -24,13 +24,12 @@ namespace pangu
             {
                 if (Vector2.Distance(transform.position, target.transform.position) <= 2)
                 {
-                    Debug.Log("consumed");
                     target.Consume(itemName);
                     Destroy(gameObject);
                 }
                 else
                 {
-                    transform.position = Vector2.MoveTowards(transform.position, target.transform.position, 10 * Time.deltaTime);
+                    transform.position = Vector2.MoveTowards(transform.position, target.transform.position, 15 * Time.deltaTime);
                 }
             }
         }

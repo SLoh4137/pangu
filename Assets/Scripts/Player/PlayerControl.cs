@@ -53,6 +53,7 @@ namespace pangu
 
 
         // Function Getters/Setters
+        private SpriteRenderer spriteRenderer;
         private Animator animator;
         public Animator Animator { get { return animator; } }
         private Rigidbody2D rb;
@@ -67,6 +68,7 @@ namespace pangu
             FacingRight = true;
             animator = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
             Stats = GetComponent<CharacterStats>();
 
             Collider2D collider = GetComponent<Collider2D>();

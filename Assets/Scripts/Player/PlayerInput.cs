@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace pangu
 {
@@ -52,6 +53,14 @@ namespace pangu
             }
         }
 
+        void OnQuit(InputAction.CallbackContext context)
+        {
+            if (context.ReadValue<float>() != 0f)
+            {
+                SceneManager.LoadScene(Scenes.MainMenu.ToString());
+            }
+        }
+
         void OnEnable()
         {
             inputActions.Enable();
@@ -63,6 +72,8 @@ namespace pangu
             inputActions.PlayerControls.Attack.performed += OnAttack;
             inputActions.PlayerControls.Attack.canceled += OnAttack;
             inputActions.PlayerControls.Mouse.performed += OnMousePosition;
+
+            inputActions.PlayerControls.Quit.performed += OnQuit;
         }
 
         void OnDisable()
@@ -75,6 +86,8 @@ namespace pangu
             inputActions.PlayerControls.Attack.performed -= OnAttack;
             inputActions.PlayerControls.Attack.canceled -= OnAttack;
             inputActions.PlayerControls.Mouse.performed -= OnMousePosition;
+
+            inputActions.PlayerControls.Quit.performed -= OnQuit;
             inputActions.Disable();
         }
     }
