@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace pangu
 {
-    public class PlayerCrouchState : PlayerBaseState
+    public class PlayerCrouchWalkState : PlayerBaseState
     {
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
@@ -13,17 +13,7 @@ namespace pangu
 
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            Control.MoveWalk();
-            // if(Control.MoveHorizontal != 0)
-            // {
-            //     animator.SetBool(PlayerTransition.isWalk.ToString(), true);
-            //     animator.SetBool(PlayerTransition.isIdle.ToString(), false);
-            // }
-
-            if (!Control.Crouch)
-            {
-                animator.SetBool(PlayerTransition.isCrouch.ToString(), false);
-            }
+            Control.MoveCrouchWalk();
 
             // Check if can jump
             if (Control.Jump && Control.DetectGround())
@@ -31,11 +21,22 @@ namespace pangu
                 animator.SetTrigger(PlayerTransition.Jump.ToString());
                 animator.SetBool(PlayerTransition.isCrouch.ToString(), false);
             }
+
+            if (!Control.Crouch)
+            {
+                animator.SetBool(PlayerTransition.isCrouch.ToString(), false);
+            }
+
+            // if (Control.MoveHorizontal == 0)
+            // {
+            //     animator.SetBool(PlayerTransition.isIdle.ToString(), true);
+            //     animator.SetBool(PlayerTransition.isWalk.ToString(), false);
+            // }
         }
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            
+
         }
     }
 }

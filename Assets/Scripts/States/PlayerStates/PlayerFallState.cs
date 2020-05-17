@@ -18,6 +18,11 @@ namespace pangu
                 animator.SetBool(PlayerTransition.isGrounded.ToString(), true);
             }
 
+            if (Control.MoveHorizontal == 0)
+            {
+                animator.SetBool(PlayerTransition.isIdle.ToString(), true);
+            }
+
             Control.MoveWalkAir();
         }
 

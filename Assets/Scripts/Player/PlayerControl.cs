@@ -97,7 +97,14 @@ namespace pangu
 
         void Update()
         {
-            animator.SetFloat(PlayerTransition.VelocityY.ToString(), rb.velocity.y);
+            animator.SetFloat(PlayerTransition.VelocityY.ToString(), Rigidbody.velocity.y);
+            FlipIdle(MoveHorizontal == 0);
+        }
+
+        void FlipIdle(bool isIdle)
+        {
+            animator.SetBool(PlayerTransition.isIdle.ToString(), isIdle);
+            animator.SetBool(PlayerTransition.isWalk.ToString(), !isIdle);
         }
 
         void FixedUpdate()
