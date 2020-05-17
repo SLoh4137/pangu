@@ -17,12 +17,26 @@ namespace pangu
         private bool textShown;
         private Color textColor;
 
+        private Queue<TextToShow> queue;
+
+        struct TextToShow {
+            public string name;
+            public string description;
+            public TextToShow(string _name, string _description)
+            {
+                name = _name;
+                description = _description;
+            }
+            
+        }
+
         // Start is called before the first frame update
         void Start()
         {
             textShown = false;
             disappearTimer = 0;
             textColor = nameText.color;
+            queue = new Queue<TextToShow>();
         }
 
         // Update is called once per frame
@@ -39,12 +53,33 @@ namespace pangu
                     if(textColor.a < 0)
                     {
                         textShown = false;
+                        Next();
                     }
                 }
             }
         }
 
+        public void Next()
+        {
+            if(queue.Count == 0) return;
+
+            TextToShow text = queue.Dequeue();
+            DisplayText(text.name, text.description);
+        }
+
         public void SetItemText(string itemName, string description)
+        {
+            if(textShown)
+            {
+                queue.Enqueue(new TextToShow(itemName, description));
+            }
+            else
+            {
+                DisplayText(itemName, description);
+            }
+        }
+
+        private void DisplayText(string itemName, string description)
         {
             nameText.SetText(itemName);
             descriptionText.SetText(description);
