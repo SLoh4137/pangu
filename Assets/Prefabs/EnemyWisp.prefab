@@ -157,6 +157,26 @@ MonoBehaviour:
   startingStats: {fileID: 11400000, guid: 2aa869ca69ab6084a84acca39c4c28f2, type: 2}
   Health: 0
   MaxHealth: 0
+  Defense:
+    BaseValue: 0
+  Speed:
+    BaseValue: 0
+  AirSpeed:
+    BaseValue: 0
+  JumpForce:
+    BaseValue: 0
+  AttackRate:
+    BaseValue: 0
+  AttackRange:
+    BaseValue: 0
+  AttackDamage:
+    BaseValue: 0
+  CritChance:
+    BaseValue: 0
+  CritDamageMultiplier:
+    BaseValue: 0
+  SensingRadius:
+    BaseValue: 0
 --- !u!58 &6847049834594246700
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -305,7 +325,7 @@ MonoBehaviour:
   driveFactor: 10
   maxSpeed: 3
   neighborRadius: 0.25
-  avoidanceRadiusMultiplier: 0.5
+  avoidanceRadiusMultiplier: 1
   color: {r: 0, g: 1, b: 0.9895632, a: 1}
 --- !u!1 &2601063931333580031
 GameObject:
