@@ -10,6 +10,7 @@ namespace pangu
         public GameObject pfDestroyedAgentParticles;
         public Flock UnclaimedFlock;
         public GameObject pfSwordAttack;
+        public GameObject pfDefend;
 
         public GameObject Create(GameObject prefab, Vector2 position, Quaternion rotation, Transform parent)
         {

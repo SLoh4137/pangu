@@ -121,6 +121,11 @@ namespace pangu
             animator.SetTrigger(PlayerTransition.Hurt.ToString());
             Stats.Health -= damageTaken;
             healthBar.SetHealth(Stats.Health);
+
+            if(onDefend != null)
+            {
+                onDefend(this);
+            }
         }
 
         public void DealDamage(ICharacter character)
@@ -140,10 +145,7 @@ namespace pangu
         #region ICanConsume
         public void Consume(ItemName itemName)
         {
-            int currentStack = Stats.AddItem(itemName);
-            ItemBase item = ItemManager.Instance.GetItem(itemName);
-            Debug.Log("Added: " + item.itemName.ToString());
-            item.AddEffect(this, currentStack);
+            Stats.AddItem(itemName);
         }
 
         #endregion ICanConsume

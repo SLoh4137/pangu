@@ -8,6 +8,7 @@ namespace pangu
     {
         StatModifying,
         OnHitAttack,
+        OnDefend,
     }
     public abstract class ItemBase
     {

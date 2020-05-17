@@ -68,13 +68,16 @@ namespace pangu
         }
 
 
-        public int AddItem(ItemName itemName)
+        public void AddItem(ItemName itemName)
         {
             int currentStack;
             Items.TryGetValue(itemName, out currentStack); // currentStack either gets the value or initialized to 0
             currentStack += 1;
             Items[itemName] = currentStack;
-            return currentStack;
+
+            ItemBase item = ItemManager.Instance.GetItem(itemName);
+            item.AddEffect(character, currentStack);
+            Debug.Log("Added: " + item.itemName.ToString());
         }
 
         public bool RemoveItem(ItemName itemName)
@@ -94,8 +97,11 @@ namespace pangu
             else
             {
                 Items[itemName] = currentStack;
-
             }
+
+            ItemBase item = ItemManager.Instance.GetItem(itemName);
+            item.RemoveEffect(character, currentStack);
+            Debug.Log("Removed: " + item.itemName.ToString());
             return true;
         }
 
@@ -108,7 +114,7 @@ namespace pangu
                 ItemBase itemClass = itemManager.GetItem(item.Key);
                 for(int i = item.Value; i >= 1; i--)
                 {
-                    itemClass.RemoveEffect(character, i);
+                    itemClass.RemoveEffect(character, i - 1);
                 }
             }
         }

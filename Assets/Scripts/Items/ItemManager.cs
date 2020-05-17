@@ -9,6 +9,7 @@ namespace pangu
         ExampleItem,
         SliverOfDivineSense,
         FlyingSword,
+        DefensiveTalisman,
     }
     public class ItemManager : Singleton<ItemManager>
     {
@@ -30,6 +31,8 @@ namespace pangu
                     return new SliverOfDivineSenseItem();
                 case ItemName.FlyingSword:
                     return new FlyingSwordItem();
+                case ItemName.DefensiveTalisman:
+                    return new DefensiveTalismanItem();
                 default:
                     throw new MissingComponentException(itemName.ToString() + " not yet added to GetItemClass");
             }
