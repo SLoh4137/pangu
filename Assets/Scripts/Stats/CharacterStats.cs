@@ -119,6 +119,8 @@ namespace pangu
                     itemClass.RemoveEffect(character, i - 1);
                 }
             }
+            Destroy(itemManager.gameObject);
+            Destroy(GameAssets.Instance.gameObject);
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace pangu
 {
-    [CreateAssetMenu(menuName= "Flock/Behavior/Stay near Player")]
+    [CreateAssetMenu(menuName= "Flock/Behavior/Stay Near Player")]
     public class StayNearPlayerBehavior : FlockBehavior
     {
         private Transform player;

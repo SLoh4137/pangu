@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace pangu
 {
@@ -152,6 +153,14 @@ namespace pangu
             animator.SetBool(PlayerTransition.isDead.ToString(), true);
             gameOverText.SetActive(true);
             Hitbox.SetActive(false);
+            StartCoroutine(ReturnToMenu());
+        }
+
+        IEnumerator ReturnToMenu()
+        {
+            GameAssets.Instance.Panel.SetActive(true);
+            yield return new WaitForSeconds(2);
+            SceneManager.LoadScene(Scenes.MainMenu.ToString());
         }
 
         public void DealDamage(ICharacter character)

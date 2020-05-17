@@ -11,6 +11,7 @@ namespace pangu
         public Flock UnclaimedFlock;
         public GameObject pfSwordAttack;
         public GameObject pfDefend;
+        public GameObject Panel;
 
         public GameObject Create(GameObject prefab, Vector2 position, Quaternion rotation, Transform parent)
         {

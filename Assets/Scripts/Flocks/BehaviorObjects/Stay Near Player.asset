@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: Stay Near Player Behavior
-  m_EditorClassIdentifier: Assembly-CSharp:pangu:StayNearPlayerBehavior
+  m_Script: {fileID: 11500000, guid: b8632a35f8af0754e85f80e50dca741e, type: 3}
+  m_Name: Stay Near Player
+  m_EditorClassIdentifier: 
   radius: 20
   pullRadius: 0.9
