@@ -83,7 +83,7 @@ namespace pangu
         {
             for (int i = 0; i < startingCount; i++)
             {
-                SpawnMember(Random.insideUnitCircle * startingCount * AgentDensity, Quaternion.Euler(Vector2.up * Random.Range(0f, 360f)));
+                SpawnMember((Vector2) transform.position + Random.insideUnitCircle * startingCount * AgentDensity, Quaternion.Euler(Vector2.up * Random.Range(0f, 360f)));
             }
         }
 

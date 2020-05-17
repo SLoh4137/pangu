@@ -9,6 +9,7 @@ namespace pangu
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             GetControl(animator);
+            Control.Hurtbox.SetActive(false);
             Control.Flock.DestroyFlock();
         }
 

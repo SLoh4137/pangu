@@ -11,6 +11,7 @@ namespace pangu
         isGrounded,
         isCrouch,
         isWallSliding,
+        isDead,
         Attack,
         Jump,
         Hurt,

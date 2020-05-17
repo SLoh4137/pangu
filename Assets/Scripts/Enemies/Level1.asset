@@ -15,4 +15,4 @@ MonoBehaviour:
   enemies:
   - enemyPrefab: {fileID: 7528832450511987955, guid: 097b3c437901beb4cb06e0a79266b482,
       type: 3}
-    cost: 3
+    cost: 5

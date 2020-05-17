@@ -13,6 +13,7 @@ namespace pangu
         public CharacterStats Stats { get; set; }
         public GameObject Hurtbox;
         public GameObject Hitbox;
+        public GameObject gameOverText;
         public HealthBar healthBar;
 
         [Header("Input")]
@@ -139,6 +140,18 @@ namespace pangu
             {
                 onDefend(this);
             }
+
+            if(Stats.Health <= 0)
+            {
+                Death();
+            }
+        }
+
+        private void Death()
+        {
+            animator.SetBool(PlayerTransition.isDead.ToString(), true);
+            gameOverText.SetActive(true);
+            Hitbox.SetActive(false);
         }
 
         public void DealDamage(ICharacter character)

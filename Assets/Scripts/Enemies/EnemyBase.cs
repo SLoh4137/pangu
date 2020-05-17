@@ -8,6 +8,9 @@ namespace pangu
     {
         public CharacterStats Stats { get; set; }
 
+        public GameObject Hurtbox;
+        public GameObject Hitbox;
+
         private Flock flock;
         public Flock Flock
         {

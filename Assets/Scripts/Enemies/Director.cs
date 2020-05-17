@@ -51,17 +51,27 @@ namespace pangu
             if (spawnPoints <= 0) return;
 
             Vector2 randomPos = PickRandomPointAroundPlayer();
+            LevelEnemyList.EnemyAndCost enemy = EnemyList.enemies[0]; // bad code but good enough for now
             while (spawnPoints > 0)
             {
-                flockManager.UnclaimedFlock.SpawnMember(randomPos, Quaternion.identity);
-                spawnPoints -= 1;
+                if (spawnPoints > enemy.cost)
+                {
+                    Instantiate(enemy.enemyPrefab, randomPos, Quaternion.identity, transform);
+                    spawnPoints -= enemy.cost;
+                }
+                else
+                {
+                    flockManager.UnclaimedFlock.SpawnMember(randomPos, Quaternion.identity);
+                    spawnPoints -= 1;
+                }
+
             }
         }
 
         // Picks random valid point
         Vector2 PickRandomPointAroundPlayer()
         {
-            return (Vector2)transform.position + Random.insideUnitCircle * 10;
+            return (Vector2) Player.position + Random.insideUnitCircle * 10;
         }
     }
 }

@@ -8,11 +8,13 @@ namespace pangu
     {
         public float IdleTime = 1;
         private float nextMoveTime;
+        private float nextCheckTime;
         private Vector2 destination;
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             GetControl(animator);
             nextMoveTime = Time.time;
+            nextCheckTime = Time.time;
         }
 
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -26,10 +28,16 @@ namespace pangu
             Vector2 moveVector = Vector2.MoveTowards(Control.transform.position, destination, Control.Stats.Speed.Value * Time.deltaTime);
             Control.transform.position = moveVector;
 
-            if (PathfindingManager.Instance.WithinDistance(Control.transform, Control.Stats.SensingRadius.Value))
+            if (nextCheckTime <= Time.time)
             {
-                animator.SetBool(EnemyTransition.isPlayerSensed.ToString(), true);
+                if (PathfindingManager.Instance.WithinDistance(Control.transform, Control.Stats.SensingRadius.Value))
+                {
+                    animator.SetBool(EnemyTransition.isPlayerSensed.ToString(), true);
+                }
+                nextCheckTime = Time.time + .5f;
             }
+
+
         }
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

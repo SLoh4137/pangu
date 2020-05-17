@@ -142,6 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d9213b0ba028f43a4b14da92ebebb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Hurtbox: {fileID: 2601063931333580031}
+  Hitbox: {fileID: 95279342934321397}
 --- !u!114 &6732246020862369099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,7 +323,7 @@ MonoBehaviour:
   behavior: {fileID: 11400000, guid: 35830594825ffa64db82c417176449b8, type: 2}
   agentPrefab: {fileID: 181117063034320519, guid: e1dd285c3611b3e4fac295f6026d0c5a,
     type: 3}
-  startingCount: 0
+  startingCount: 10
   driveFactor: 10
   maxSpeed: 3
   neighborRadius: 0.25

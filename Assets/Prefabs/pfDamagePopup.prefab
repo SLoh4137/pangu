@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7359201604815236352, guid: c0aec509ec445694aaf40e482a1c85dd, type: 2}
+  - {fileID: 9193589856801514352, guid: ffb8b88f78ee38f4abaee1a158c7de15, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,8 +116,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c0aec509ec445694aaf40e482a1c85dd, type: 2}
-  m_sharedMaterial: {fileID: 7359201604815236352, guid: c0aec509ec445694aaf40e482a1c85dd,
+  m_fontAsset: {fileID: 11400000, guid: ffb8b88f78ee38f4abaee1a158c7de15, type: 2}
+  m_sharedMaterial: {fileID: 9193589856801514352, guid: ffb8b88f78ee38f4abaee1a158c7de15,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
