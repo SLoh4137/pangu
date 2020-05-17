@@ -49,6 +49,6 @@ MonoBehaviour:
   startingCount: 100
   driveFactor: 10
   maxSpeed: 10
-  neighborRadius: 1
-  avoidanceRadiusMultiplier: 0.5
+  neighborRadius: 1.5
+  avoidanceRadiusMultiplier: 0.25
   color: {r: 1, g: 1, b: 1, a: 1}

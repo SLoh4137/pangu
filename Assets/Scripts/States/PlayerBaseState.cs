@@ -10,6 +10,7 @@ namespace pangu
         isWalk,
         isGrounded,
         isCrouch,
+        isWallSliding,
         Attack,
         Jump,
         Hurt,

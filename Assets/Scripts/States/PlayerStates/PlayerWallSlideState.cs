@@ -4,28 +4,30 @@ using UnityEngine;
 
 namespace pangu
 {
-    public class PlayerFallState : PlayerBaseState
+    public class PlayerWallSlideState : PlayerBaseState
     {
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             GetControl(animator);
-            animator.SetBool(PlayerTransition.isGrounded.ToString(), false);
+            
         }
 
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            bool isGrounded = Control.DetectGround();
-            //bool isWallSlide = Control.CheckWallSliding(isGrounded);
+            Control.MoveWallSlide();
 
-            animator.SetBool(PlayerTransition.isGrounded.ToString(), isGrounded);
-            //animator.SetBool(PlayerTransition.isWallSliding.ToString(), isWallSlide);
+            bool isWallSlide = Control.CheckWallSliding();
 
-            Control.MoveWalkAir();
+            animator.SetBool(PlayerTransition.isWallSliding.ToString(), isWallSlide);
+            if(Control.Jump && isWallSlide)
+            {
+                animator.SetTrigger(PlayerTransition.Jump.ToString());
+            }
         }
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 
         {
-
+            
         }
     }
 }

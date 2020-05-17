@@ -26,6 +26,12 @@ namespace pangu
         public float GravityMultiplier = 2.5f;
         public float PullMultiplier = 2.5f;
 
+        [Header("Wall Jump")]
+        public float wallJumpTime = 0.2f;
+        public float wallSlideSpeed = 0.3f;
+        public float wallDistance;
+        private float jumpTime;
+
         [Header("Collision Detection")]
         public GameObject GroundDetectionSpherePrefab;
         public float GroundDetectionGranularity;
@@ -166,6 +172,7 @@ namespace pangu
                 Debug.DrawRay(sphere.transform.position, Vector3.down * GroundDetectionDistance, Color.black);
                 if (hit.collider != null)
                 {
+                    jumpTime = Time.time + wallJumpTime;
                     return true;
                 }
             }
@@ -190,14 +197,55 @@ namespace pangu
             Rigidbody.velocity = new Vector2(Stats.AirSpeed.Value * MoveHorizontal, Rigidbody.velocity.y);
         }
 
+        public void MoveCrouchWalk()
+        {
+            Rigidbody.velocity = new Vector2(Stats.Speed.Value * MoveHorizontal, Rigidbody.velocity.y);
+        }
+
         public void MoveJump()
         {
             Rigidbody.AddForce(Vector2.up * Stats.JumpForce.Value);
         }
 
-        public void MoveCrouchWalk()
+        public bool CanJump()
         {
-            Rigidbody.velocity = new Vector2(Stats.Speed.Value * MoveHorizontal, Rigidbody.velocity.y);
+            return Jump && (jumpTime >= Time.time || DetectGround());
+        }
+
+        public bool CanWallJump()
+        {
+            return Jump && CheckWallSliding();
+        }
+
+        public bool CheckWallSliding()
+        {
+            return CheckWallSliding(DetectGround());
+        }
+
+        public bool CheckWallSliding(bool isGrounded)
+        {
+            if(isGrounded && jumpTime < Time.time) return false;
+
+            int direction = FacingRight ? 1 : -1;
+            RaycastHit2D wallCheckHit = Physics2D.Raycast(transform.position, new Vector2(wallDistance * direction, 0), wallDistance, groundLayers);
+            Debug.DrawRay(transform.position, new Vector2(wallDistance * direction, 0), Color.blue);
+
+            if(wallCheckHit && MoveHorizontal != 0)
+            {
+                jumpTime = Time.time + wallJumpTime;
+                return true;
+            }
+            else if (jumpTime < Time.time)
+            {
+                return false;
+            } 
+
+            return true;
+        }
+
+        public void MoveWallSlide()
+        {
+            Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, Mathf.Clamp(Rigidbody.velocity.y, wallSlideSpeed, float.MaxValue));
         }
 
         #endregion

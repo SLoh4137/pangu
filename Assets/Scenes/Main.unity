@@ -1304,6 +1304,9 @@ MonoBehaviour:
   Attacking: 0
   GravityMultiplier: 1.5
   PullMultiplier: 1.5
+  wallJumpTime: 0.2
+  wallSlideSpeed: 0.3
+  wallDistance: 0.5
   GroundDetectionSpherePrefab: {fileID: 1338952004033316766, guid: d04684ee58663e84ab0f1920d4e5b0cc,
     type: 3}
   GroundDetectionGranularity: 0

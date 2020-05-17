@@ -47,7 +47,7 @@ namespace pangu
 
         public void OnDefend(ICharacter character)
         {
-            assets.Create(assets.pfDefend, character.transform.position, Quaternion.identity, character.transform);
+            assets.Create(assets.pfDefend, character.transform.position + Vector3.up * .5f, Quaternion.identity, character.transform);
         }
     }
 }
