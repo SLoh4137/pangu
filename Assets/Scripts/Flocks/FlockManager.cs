@@ -9,7 +9,6 @@ namespace pangu
         public Flock UnclaimedFlock;
         private List<FlockAgent> allAgents;
         private List<FlockAgent> agentsToAdd;
-        //private HashSet<FlockAgent> agentsToRemove;
         private bool hasAgentsToRemove;
         private uint idCounter = 0;
 
@@ -18,7 +17,6 @@ namespace pangu
         {
             allAgents = new List<FlockAgent>();
             agentsToAdd = new List<FlockAgent>();
-            //agentsToRemove = new HashSet<FlockAgent>();
 
             Flock flockPrefab = GameAssets.Instance.UnclaimedFlock;
             UnclaimedFlock = Instantiate(flockPrefab, transform.position, transform.rotation, transform);
@@ -41,17 +39,6 @@ namespace pangu
                 hasAgentsToRemove = false;
             }
 
-            // if (agentsToRemove.Count > 0)
-            // {
-            //     foreach (FlockAgent agent in agentsToRemove)
-            //     {
-            //         allAgents.Remove(agent);
-            //         agent.DestroyAgent();
-            //     }
-            //     agentsToRemove.Clear();
-            //     allAgents.RemoveAll(MarkedForDeletion); // right now removes the null agents. Might need a better way of cleaning later
-            // }
-
             foreach (FlockAgent agent in allAgents)
             {
                 if(agent == null)
@@ -72,7 +59,6 @@ namespace pangu
 
         public void RemoveAgent(FlockAgent agent)
         {
-            //agentsToRemove.Add(agent);
             agent.transform.parent = transform;
             agent.markedForDeletion = true;
             agent.ChangeFlock(UnclaimedFlock);
@@ -93,7 +79,6 @@ namespace pangu
                 return true;
             }
             return false;
-            //return agent == null || agent.markedForDeletion;
         }
     }
 }
