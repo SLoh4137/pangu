@@ -9,17 +9,13 @@ namespace pangu
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             GetControl(animator);
-            Control.Rigidbody.AddForce(Vector2.up * Control.Stats.JumpForce.Value);
+            Control.MoveJump();
             animator.SetBool(PlayerTransition.isGrounded.ToString(), false);
         }
 
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if(Control.MoveHorizontal != 0)
-            {
-                Rigidbody2D rb = Control.Rigidbody;
-                rb.velocity = new Vector2(Control.Stats.AirSpeed.Value * Control.MoveHorizontal, rb.velocity.y);
-            }
+            Control.MoveWalkAir();
         }
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 

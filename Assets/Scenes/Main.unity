@@ -845,15 +845,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d7d123ca0d25342a62e9b2354c8be9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hurtbox: {fileID: 1959998859}
-  Hitbox: {fileID: 399164522}
+  Hurtbox: {fileID: 1959998858}
+  Hitbox: {fileID: 399164521}
   healthBar: {fileID: 494020252}
   MoveHorizontal: 0
   Jump: 0
   Crouch: 0
   FacingRight: 0
   Attacking: 0
-  GravityMultiplier: 1
+  GravityMultiplier: 1.5
   PullMultiplier: 1.5
   GroundDetectionSpherePrefab: {fileID: 1338952004033316766, guid: d04684ee58663e84ab0f1920d4e5b0cc,
     type: 3}

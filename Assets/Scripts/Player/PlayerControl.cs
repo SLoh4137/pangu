@@ -11,8 +11,8 @@ namespace pangu
     {
         #region publicVars
         public CharacterStats Stats { get; set; }
-        public Transform Hurtbox;
-        public Transform Hitbox;
+        public GameObject Hurtbox;
+        public GameObject Hitbox;
         public HealthBar healthBar;
 
         [Header("Input")]
@@ -122,7 +122,7 @@ namespace pangu
             Stats.Health -= damageTaken;
             healthBar.SetHealth(Stats.Health);
 
-            if(onDefend != null)
+            if (onDefend != null)
             {
                 onDefend(this);
             }
@@ -150,6 +150,7 @@ namespace pangu
 
         #endregion ICanConsume
 
+        #region DetectGround
         public bool DetectGround()
         {
             foreach (GameObject sphere in GroundDetectionSpheres)
@@ -164,17 +165,44 @@ namespace pangu
             return false;
         }
 
+        private GameObject CreateEdgeSphere(Vector3 pos)
+        {
+            GameObject sphere = Instantiate(GroundDetectionSpherePrefab, pos, Quaternion.identity, transform);
+            return sphere;
+        }
+        #endregion
+
+        #region Movement
+        public void MoveWalk()
+        {
+            Rigidbody.velocity = new Vector2(Stats.Speed.Value * MoveHorizontal, Rigidbody.velocity.y);
+        }
+
+        public void MoveWalkAir()
+        {
+            Rigidbody.velocity = new Vector2(Stats.AirSpeed.Value * MoveHorizontal, Rigidbody.velocity.y);
+        }
+
+        public void MoveJump()
+        {
+            Rigidbody.AddForce(Vector2.up * Stats.JumpForce.Value);
+        }
+
+        public void MoveCrouchWalk()
+        {
+            Rigidbody.velocity = new Vector2(Stats.Speed.Value * MoveHorizontal, Rigidbody.velocity.y);
+        }
+
+        #endregion
+
+
         public void Flip()
         {
             FacingRight = !FacingRight;
             transform.localScale = transform.localScale * flipVector; // flips by multiplying x by -1
         }
 
-        private GameObject CreateEdgeSphere(Vector3 pos)
-        {
-            GameObject sphere = Instantiate(GroundDetectionSpherePrefab, pos, Quaternion.identity, transform);
-            return sphere;
-        }
+
 
     }
 }

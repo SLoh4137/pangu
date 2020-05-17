@@ -9,7 +9,7 @@ namespace pangu
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             GetControl(animator);
-            Control.Hitbox.gameObject.SetActive(false);
+            Control.Hitbox.SetActive(false);
         }
 
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -19,7 +19,7 @@ namespace pangu
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 
         {
-            Control.Hitbox.gameObject.SetActive(true);
+            Control.Hitbox.SetActive(true);
         }
     }
 }
