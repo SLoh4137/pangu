@@ -18,7 +18,8 @@ namespace pangu
         [Header("Attack")]
         public float AttackRate;
         public float AttackRange;
-        public int AttackDamage;
+        public int BaseDamage;
+        public int DamageRange;
         public int Knockback;
 
         [Range(0, 100)]

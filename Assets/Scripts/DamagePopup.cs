@@ -7,11 +7,12 @@ namespace pangu
 {
     public class DamagePopup : MonoBehaviour
     {
-        public static DamagePopup Create(Vector3 position, int damageAmount)
+        public static DamagePopup Create(Vector3 position, int damageAmount, Color color)
         {
-            Transform damagePopupTransform = Instantiate(GameAssets.Instance.pfDamagePopup, position, Quaternion.identity);
+            Vector3 jitterPos = position + (Vector3) Random.insideUnitCircle;
+            Transform damagePopupTransform = Instantiate(GameAssets.Instance.pfDamagePopup, jitterPos, Quaternion.identity);
             DamagePopup popup = damagePopupTransform.GetComponent<DamagePopup>();
-            popup.Setup(damageAmount);
+            popup.Setup(damageAmount, color);
             return popup;
         }
 
@@ -25,9 +26,11 @@ namespace pangu
             disappearTimer = 0.5f;
         }
 
-        void Setup(int damageAmount)
+        void Setup(int damageAmount, Color color)
         {
             textMesh.SetText(damageAmount.ToString());
+            textColor = color;
+            textMesh.color = textColor;
         }
 
         void Update()

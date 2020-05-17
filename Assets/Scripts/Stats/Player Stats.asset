@@ -19,7 +19,9 @@ MonoBehaviour:
   JumpForce: 500
   AttackRate: 2
   AttackRange: 1
-  AttackDamage: 5
+  BaseDamage: 5
+  DamageRange: 3
+  Knockback: 0
   CritChance: 0
   CritDamageMultiplier: 1
   SensingRadius: 0

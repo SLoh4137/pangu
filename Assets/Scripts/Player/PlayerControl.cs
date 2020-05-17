@@ -156,10 +156,12 @@ namespace pangu
 
         public void DealDamage(ICharacter character)
         {
-            int damage = Mathf.CeilToInt(Stats.AttackDamage.Value);
+            float baseDamage = Stats.BaseDamage.Value;
+            float range = Stats.DamageRange.Value;
+            int damage = (int) UnityEngine.Random.Range(baseDamage - range, baseDamage + range);
             //Stats.AttackRange += 1;
             character.TakeDamage(damage);
-            DamagePopup.Create(character.transform.position, damage);
+            DamagePopup.Create(character.transform.position, damage, Color.white);
 
             if (onAttack != null)
             {

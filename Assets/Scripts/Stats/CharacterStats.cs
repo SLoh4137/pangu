@@ -34,7 +34,8 @@ namespace pangu
         public Stat AttackRange;
 
         [HideInInspector]
-        public Stat AttackDamage;
+        public Stat BaseDamage;
+        public Stat DamageRange;
 
         [HideInInspector]
         public Stat CritChance;
@@ -61,7 +62,8 @@ namespace pangu
             JumpForce = new Stat(startingStats.JumpForce);
             AttackRate = new Stat(startingStats.AttackRate);
             AttackRange = new Stat(startingStats.AttackRange);
-            AttackDamage = new Stat(startingStats.AttackDamage);
+            BaseDamage = new Stat(startingStats.BaseDamage);
+            DamageRange = new Stat(startingStats.DamageRange);
             CritChance = new Stat(startingStats.CritChance);
             CritDamageMultiplier = new Stat(startingStats.CritDamageMultiplier);
             SensingRadius = new Stat(startingStats.SensingRadius);

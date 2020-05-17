@@ -30,7 +30,7 @@ namespace pangu
         public void AdditionalAttack(ICharacter character)
         {
             character.TakeDamage(5);
-            DamagePopup.Create(character.transform.position, 5);
+            DamagePopup.Create(character.transform.position, 5, Color.blue);
             assets.Create(assets.pfSwordAttack, character.transform.position, Quaternion.identity, character.transform);
         }
     }
