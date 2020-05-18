@@ -16,10 +16,14 @@ namespace pangu
         private int spawnPoints;
         private float nextSecond;
         private FlockManager flockManager;
+
+        void Awake()
+        {
+            ElapsedTime = 0;
+        }
         // Start is called before the first frame update
         void Start()
         {
-            ElapsedTime = 0;
             nextSecond = Time.deltaTime + 1f;
             spawnPoints = 0;
             flockManager = FlockManager.Instance;
@@ -71,7 +75,12 @@ namespace pangu
         // Picks random valid point
         Vector2 PickRandomPointAroundPlayer()
         {
-            return (Vector2) Player.position + Random.insideUnitCircle * 10;
+            return (Vector2)Player.position + Random.insideUnitCircle * 10;
+        }
+
+        public float GetDifficultyMultiplier()
+        {
+            return Mathf.Ceil(ElapsedTime / 30);
         }
     }
 }

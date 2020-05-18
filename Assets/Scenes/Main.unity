@@ -150,7 +150,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &21375666
 MonoBehaviour:
@@ -1680,6 +1680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e061348b8430b43a872ea32648334a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnemy: 0
   startingStats: {fileID: 11400000, guid: c8073c506049c6d47a222338f6727045, type: 2}
   Health: 0
   MaxHealth: 0
@@ -2510,7 +2511,7 @@ RectTransform:
   - {fileID: 1012207728}
   - {fileID: 1220890987}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2827,7 +2828,7 @@ Transform:
   - {fileID: 2838828621822707657}
   - {fileID: 7115855744530437256}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1117382289
 MonoBehaviour:
@@ -3228,7 +3229,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1325327798
 GameObject:
@@ -94401,6 +94402,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1743397101}
+  colorGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 0.7971698, b: 0.7971698, a: 1}
+    key2: {r: 1, g: 0.6839622, b: 0.6839622, a: 1}
+    key3: {r: 1, g: 0.4764151, b: 0.4764151, a: 1}
+    key4: {r: 1, g: 0.3160377, b: 0.3160377, a: 1}
+    key5: {r: 1, g: 0, b: 0, a: 1}
+    key6: {r: 1, g: 0, b: 0, a: 1}
+    key7: {r: 1, g: 0, b: 0, a: 0}
+    ctime0: 11141
+    ctime1: 22282
+    ctime2: 33731
+    ctime3: 44564
+    ctime4: 55705
+    ctime5: 65535
+    ctime6: 65535
+    ctime7: 65535
+    atime0: 0
+    atime1: 65535
+    atime2: 65535
+    atime3: 65535
+    atime4: 65535
+    atime5: 65535
+    atime6: 65535
+    atime7: 0
+    m_Mode: 1
+    m_NumColorKeys: 6
+    m_NumAlphaKeys: 2
+  maxTime: 180
 --- !u!1 &1797097881
 GameObject:
   m_ObjectHideFlags: 0

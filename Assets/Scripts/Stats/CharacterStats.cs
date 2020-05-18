@@ -6,6 +6,7 @@ namespace pangu
 {
     public class CharacterStats : MonoBehaviour
     {
+        public bool isEnemy;
         public StartingStats startingStats;
         public ICanConsume character;
 
@@ -54,15 +55,17 @@ namespace pangu
             character = GetComponent<ICanConsume>();
             Items = new Dictionary<ItemName, int>();
 
-            Health = startingStats.StartingHealth;
-            MaxHealth = startingStats.StartingHealth;
-            Defense = new Stat(startingStats.Defense);
+            float difficultyMultiplier = isEnemy ? Director.Instance.GetDifficultyMultiplier() : 1;
+
+            Health = (int) (startingStats.StartingHealth * difficultyMultiplier);
+            MaxHealth = (int) (startingStats.StartingHealth * difficultyMultiplier);
+            Defense = new Stat(startingStats.Defense * difficultyMultiplier);
             Speed = new Stat(startingStats.Speed);
             AirSpeed = new Stat(startingStats.AirSpeed);
             JumpForce = new Stat(startingStats.JumpForce);
             AttackRate = new Stat(startingStats.AttackRate);
             AttackRange = new Stat(startingStats.AttackRange);
-            BaseDamage = new Stat(startingStats.BaseDamage);
+            BaseDamage = new Stat(startingStats.BaseDamage * difficultyMultiplier);
             DamageRange = new Stat(startingStats.DamageRange);
             CritChance = new Stat(startingStats.CritChance);
             CritDamageMultiplier = new Stat(startingStats.CritDamageMultiplier);
